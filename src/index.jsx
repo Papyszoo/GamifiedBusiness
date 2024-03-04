@@ -1,7 +1,7 @@
 import "./style.css";
 import ReactDOM from "react-dom/client";
 import { Canvas } from "@react-three/fiber";
-import PizzaPlace from "./PizzaPlace.jsx";
+import PizzaPlace from "./PizzaPlace/PizzaPlace";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
