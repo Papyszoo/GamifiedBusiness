@@ -2,11 +2,16 @@ import { folder, useControls } from "leva";
 import React from "react";
 
 const Sun = () => {
-    const config = useControls("Sun", {
+    const sunParameters = useControls("Sun", {
         position: {
             x: 70,
             y: 30,
             z: -100,
+        },
+        color: {
+            a: 9.0,
+            b: 5.0,
+            c: 0.3,
         },
         sphereGeometry: folder({
             radius: 15,
@@ -14,17 +19,20 @@ const Sun = () => {
             heightSegments: 16,
         }),
     });
-    console.log(config);
+
     return (
-        <mesh position={[...Object.values(config.position)]}>
+        <mesh position={[...Object.values(sunParameters.position)]}>
             <sphereGeometry
                 args={[
-                    config.radius,
-                    config.widthSegments,
-                    config.heightSegments,
+                    sunParameters.radius,
+                    sunParameters.widthSegments,
+                    sunParameters.heightSegments,
                 ]}
             />
-            <meshBasicMaterial color={[15, 0.3, 0]} toneMapped={false} />
+            <meshBasicMaterial
+                color={[...Object.values(sunParameters.color)]}
+                toneMapped={false}
+            />
         </mesh>
     );
 };

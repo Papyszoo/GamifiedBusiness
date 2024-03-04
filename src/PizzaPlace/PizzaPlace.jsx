@@ -1,23 +1,37 @@
-import { Stars } from "@react-three/drei";
+import { Effects, Stars } from "@react-three/drei";
 import { useThree, extend } from "@react-three/fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { useControls } from "leva";
-import * as THREE from "three";
+import { useControls, folder } from "leva";
 import Sun from "./Sun";
+import { UnrealBloomPass, OrbitControls } from "three-stdlib";
 
+extend({ UnrealBloomPass });
 extend({ OrbitControls });
 
 export default function PizzaPlace() {
     const { camera, gl } = useThree();
+    const parameters = useControls("PizzaPlace", {
+        bloomPass: folder({
+            threshold: 1,
+            strength: 0.3,
+            radius: 0.3,
+        }),
+    });
 
     return (
         <>
+            <Effects disableGamma>
+                <unrealBloomPass
+                    threshold={parameters.threshold}
+                    strength={parameters.strength}
+                    radius={parameters.radius}
+                />
+            </Effects>
             <orbitControls
                 args={[camera, gl.domElement]}
                 enableZoom={false}
                 enablePan={false}
             />
-            <Stars saturation={1} count={400} speed={0.5} />
+            <Stars count={400} />
             <color attach="background" args={["black"]} />
 
             <Sun />
