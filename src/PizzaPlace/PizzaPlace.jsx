@@ -2,6 +2,7 @@ import { Effects, Stars } from "@react-three/drei";
 import { useThree, extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
 import Sun from "./Sun";
+import { PizzaSun } from "./PizzaSun";
 import { UnrealBloomPass, OrbitControls } from "three-stdlib";
 
 extend({ UnrealBloomPass });
@@ -35,7 +36,7 @@ export default function PizzaPlace() {
             <color attach="background" args={["black"]} />
 
             <Sun />
-
+            <PizzaSun />
             <ambientLight intensity={1.5} />
         </>
     );
