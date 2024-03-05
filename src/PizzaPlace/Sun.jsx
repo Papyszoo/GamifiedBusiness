@@ -1,5 +1,7 @@
 import { folder, useControls } from "leva";
 import React from "react";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { useLoader } from "@react-three/fiber";
 
 const Sun = () => {
     const sunParameters = useControls("Sun", {
@@ -19,21 +21,29 @@ const Sun = () => {
             heightSegments: 16,
         }),
     });
+    const obj = useLoader(OBJLoader, "/pizzaSun.obj");
 
     return (
-        <mesh position={[...Object.values(sunParameters.position)]}>
-            <sphereGeometry
-                args={[
-                    sunParameters.radius,
-                    sunParameters.widthSegments,
-                    sunParameters.heightSegments,
-                ]}
-            />
-            <meshBasicMaterial
-                color={[...Object.values(sunParameters.color)]}
-                toneMapped={false}
-            />
-        </mesh>
+        // <mesh position={[...Object.values(sunParameters.position)]}>
+        //     <sphereGeometry
+        //         args={[
+        //             sunParameters.radius,
+        //             sunParameters.widthSegments,
+        //             sunParameters.heightSegments,
+        //         ]}
+        //     />
+        //     <meshBasicMaterial
+        //         color={[...Object.values(sunParameters.color)]}
+        //         toneMapped={false}
+        //     />
+        // </mesh>
+
+        <primitive
+            object={obj}
+            position={[...Object.values(sunParameters.position)]}
+            rotation-y={Math.PI / 1.2}
+            rotation-x={Math.PI / 4}
+        />
     );
 };
 
