@@ -1,4 +1,5 @@
 import "./style.css";
+import 'primeicons/primeicons.css';
 import ReactDOM from "react-dom/client";
 import { Canvas } from "@react-three/fiber";
 import PizzaPlace from "./PizzaPlace/PizzaPlace";
