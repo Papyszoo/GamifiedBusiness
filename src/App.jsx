@@ -40,7 +40,7 @@ const App = () => {
                         <TabPanel leftIcon="pi pi-home" header="Home">
                             <p>test</p>
                         </TabPanel>
-                        <TabPanel leftIcon="pi pi-shopping-cart" header="Menu">
+                        <TabPanel leftIcon="pi pi-book" header="Menu">
                             <p>test</p>
                         </TabPanel>
                         <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
