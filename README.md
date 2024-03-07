@@ -1,12 +1,15 @@
 # Gamified Business
 
+> [!NOTE]
+> This repository is part of [100 commitów](https://100commitow.pl/) contest
+
 ## Purpose
 
 This project was created to try to map real life business process into fun mini game.
 
 ## Planned features
 
-### Ordering pizza
+### Ordering pizza :pizza:
 
 -   [x] Create environment
 -   [x] Create UI on top of 3D environment
@@ -14,7 +17,7 @@ This project was created to try to map real life business process into fun mini 
 -   [ ] Deploy on github pages
 -   [ ] Create models: building, pizza, ingredients, furnace
 
-## Commands
+## Commands :keyboard:
 
 | Command      | Description              |
 | ------------ | ------------------------ |
@@ -22,7 +25,7 @@ This project was created to try to map real life business process into fun mini 
 | npm run dev  | Start development server |
 | npm run test | Run tests                |
 
-## Dev Server
+## Dev Server :computer:
 
 After installing dependencies with command:
 
