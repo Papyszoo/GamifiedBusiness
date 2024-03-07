@@ -1,4 +1,3 @@
-import "./style.css";
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/lara-dark-teal/theme.css";
 import ReactDOM from "react-dom/client";

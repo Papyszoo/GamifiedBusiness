@@ -14,8 +14,8 @@ const App = () => {
     const [locationSettings, setLocationSettings] = useState(Routes.default);
 
     useEffect(() => {
-        setLocationSettings(Routes[location] ?? Routes.default);
-        console.log(locationSettings);
+        const newLocationSettings = Routes[location] ?? Routes.default;
+        setLocationSettings(newLocationSettings);
     }, [location]);
 
     return (
@@ -27,7 +27,7 @@ const App = () => {
             <PrimeReactProvider>
                 <Dialog
                     maximized
-                    visible
+                    visible={locationSettings.overlayVisible}
                     closable={false}
                     className="dialog-overlay"
                     showHeader={false}
@@ -37,13 +37,16 @@ const App = () => {
                         className="tabView-overlay"
                         onTabChange={(e) => setLocation(Tabs[e.index])}
                     >
-                        <TabPanel leftIcon="pi pi-shopping-cart" header="test">
+                        <TabPanel leftIcon="pi pi-home" header="Home">
                             <p>test</p>
                         </TabPanel>
-                        <TabPanel leftIcon="pi pi-shopping-cart" header="test2">
+                        <TabPanel leftIcon="pi pi-shopping-cart" header="Menu">
                             <p>test</p>
                         </TabPanel>
-                        <TabPanel leftIcon="pi pi-shopping-cart" header="test3">
+                        <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
+                            <p>test</p>
+                        </TabPanel>
+                        <TabPanel leftIcon="pi pi-wrench" header="Customize">
                             <p>test</p>
                         </TabPanel>
                     </TabView>
