@@ -1,57 +1,35 @@
 import "./style.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import PizzaPlace from "./PizzaPlace/PizzaPlace";
-import { Perf } from "r3f-perf";
-import { PrimeReactProvider } from "primereact/api";
-import { Dialog } from "primereact/dialog";
-import { TabPanel, TabView } from "primereact/tabview";
 import { useLocation } from "wouter";
-import { Tabs, Routes } from "./pages";
+import { Routes } from "./Constants";
+import useLocationSettingsStore from "./useLocationSettingsStore";
+import { useShallow } from "zustand/react/shallow";
+import Overlay from "./Overlay/Overlay";
+import Environment from "./Environment/Environment";
+import { Leva } from "leva";
 
 const App = () => {
     const [location, setLocation] = useLocation();
-    const [locationSettings, setLocationSettings] = useState(Routes.default);
+
+    const { locationChanged } = useLocationSettingsStore(
+        useShallow((state) => ({
+            locationChanged: state.locationChanged,
+        }))
+    );
 
     useEffect(() => {
         const newLocationSettings = Routes[location] ?? Routes.default;
-        setLocationSettings(newLocationSettings);
+        locationChanged(newLocationSettings);
     }, [location]);
 
     return (
         <>
+            <Leva />
             <Canvas camera={{ position: [0, 0, 10] }}>
-                <Perf position="top-left" />
-                <PizzaPlace />
+                <Environment />
             </Canvas>
-            <PrimeReactProvider>
-                <Dialog
-                    maximized
-                    visible={locationSettings.overlayVisible}
-                    closable={false}
-                    className="dialog-overlay"
-                    showHeader={false}
-                >
-                    <TabView
-                        activeIndex={locationSettings.selectedTab}
-                        className="tabView-overlay"
-                        onTabChange={(e) => setLocation(Tabs[e.index])}
-                    >
-                        <TabPanel leftIcon="pi pi-home" header="Home">
-                            <p>test</p>
-                        </TabPanel>
-                        <TabPanel leftIcon="pi pi-book" header="Menu">
-                            <p>test</p>
-                        </TabPanel>
-                        <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
-                            <p>test</p>
-                        </TabPanel>
-                        <TabPanel leftIcon="pi pi-wrench" header="Customize">
-                            <p>test</p>
-                        </TabPanel>
-                    </TabView>
-                </Dialog>
-            </PrimeReactProvider>
+            <Overlay />
         </>
     );
 };

@@ -9,7 +9,7 @@ This project was created to try to map real life business process into fun mini 
 
 ## Planned features
 
-### Ordering pizza :pizza:
+### :pizza: Ordering pizza
 
 -   [x] Create environment
 -   [x] Create UI on top of 3D environment
@@ -17,7 +17,7 @@ This project was created to try to map real life business process into fun mini 
 -   [ ] Deploy on github pages
 -   [ ] Create models: building, pizza, ingredients, furnace
 
-## Commands :keyboard:
+## :keyboard: Commands
 
 | Command      | Description              |
 | ------------ | ------------------------ |
@@ -25,7 +25,7 @@ This project was created to try to map real life business process into fun mini 
 | npm run dev  | Start development server |
 | npm run test | Run tests                |
 
-## Dev Server :computer:
+## :computer: Dev Server
 
 After installing dependencies with command:
 
@@ -39,7 +39,7 @@ Then Application can be accessed with this URL:
 
 > http://localhost:2137/
 
-## File Structure
+## :floppy_disk: File Structure
 
 On Top Level there are two main folders:
 

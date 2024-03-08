@@ -14,11 +14,6 @@ body,
     z-index: 10;
 }
 
-.tabView-overlay {
-    width: 100%;
-    height: 100%;
-}
-
 .p-dialog .p-dialog-header,
 .p-dialog .p-dialog-content {
     background: transparent;
@@ -28,4 +23,31 @@ body,
 .p-tabview-panels,
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
     background: transparent;
+}
+
+.p-tabview-nav-container {
+    z-index: 15;
+}
+
+.p-dialog-mask {
+    align-items: normal !important;
+    justify-content: normal !important;
+}
+
+.wholePage {
+    height: 100%;
+}
+
+.p-dialog {
+    max-height: 100%;
+    width: 100vw;
+}
+
+.p-dialog.overlay-hidden {
+    height: fit-content;
+    width: fit-content;
+}
+
+.overlay-hidden .p-tabview-panels {
+    padding: 0;
 }
