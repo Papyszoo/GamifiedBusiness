@@ -22,9 +22,9 @@ const Environment = () => {
     } = useCameraStore(
         useShallow((state) => ({
             targetCameraPosition: state.targetCameraPosition,
-            targetLookAtPosition: state.targetLookAtPosition,
+            targetLookAt: state.targetLookAt,
             setTargetCameraPosition: state.setTargetCameraPosition,
-            setTargetLookAtPosition: state.setTargetLookAtPosition,
+            setTargetLookAt: state.setTargetLookAt,
         }))
     );
 
@@ -34,7 +34,7 @@ const Environment = () => {
         if (targetCameraPosition) {
             easing.damp3(state.camera.position, targetCameraPosition, 0.5, dt);
         }
-        if (targetLookAtPosition) {
+        if (targetLookAt) {
             easing.dampQ(
                 state.camera.quaternion,
                 targetLookAtPosition,
@@ -46,12 +46,12 @@ const Environment = () => {
     });
 
     useEffect(() => {
-        if (targetCameraPosition || targetLookAtPosition) {
+        if (targetCameraPosition || targetLookAt) {
             controls.current.enabled = false;
         } else {
             controls.current.enabled = true;
         }
-    }, [targetCameraPosition, targetLookAtPosition]);
+    }, [targetCameraPosition, targetLookAt]);
 
     return (
         <Bvh>
