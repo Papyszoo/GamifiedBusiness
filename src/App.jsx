@@ -26,7 +26,7 @@ const App = () => {
     return (
         <>
             <Leva />
-            <Canvas camera={{ position: [0, 0, 10] }}>
+            <Canvas>
                 <Environment />
             </Canvas>
             <Overlay />

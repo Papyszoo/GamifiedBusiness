@@ -35,6 +35,11 @@ export default function PizzaPlace() {
             <Stars count={400} />
             <color attach="background" args={["black"]} />
 
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
+                <planeGeometry args={[50, 50]} />
+                <meshBasicMaterial color="#ffffff" />
+            </mesh>
+
             <Sun />
             <PizzaSun />
             <ambientLight intensity={1.5} />
