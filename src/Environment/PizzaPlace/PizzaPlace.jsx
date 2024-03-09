@@ -1,12 +1,14 @@
-import { Effects, Stars } from "@react-three/drei";
+import { Effects, MeshReflectorMaterial, Sky, Stars } from "@react-three/drei";
 import { useThree, extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
 import Sun from "./Sun";
 import { PizzaSun } from "./PizzaSun";
-import { UnrealBloomPass, OrbitControls } from "three-stdlib";
+import { UnrealBloomPass } from "three-stdlib";
+import * as THREE from "three";
+import useOptionsStore from "../../useOptionsStore";
+import { useShallow } from "zustand/react/shallow";
 
 extend({ UnrealBloomPass });
-extend({ OrbitControls });
 
 export default function PizzaPlace() {
     const { camera, gl } = useThree();
@@ -18,6 +20,12 @@ export default function PizzaPlace() {
         }),
     });
 
+    const { darkMode } = useOptionsStore(
+        useShallow((state) => ({
+            darkMode: state.darkMode,
+        }))
+    );
+
     return (
         <>
             <Effects disableGamma>
@@ -27,17 +35,26 @@ export default function PizzaPlace() {
                     radius={parameters.radius}
                 />
             </Effects>
-            <orbitControls
-                args={[camera, gl.domElement]}
-                enableZoom={false}
-                enablePan={false}
-            />
-            <Stars count={400} />
+            {darkMode ? (
+                <Stars count={400} />
+            ) : (
+                <Sky
+                    distance={450000}
+                    sunPosition={[0, 1, 0]}
+                    inclination={0}
+                    azimuth={0.25}
+                />
+            )}
+
             <color attach="background" args={["black"]} />
 
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
-                <planeGeometry args={[50, 50]} />
-                <meshBasicMaterial color="#ffffff" />
+                <planeGeometry args={[250, 250]} />
+                <MeshReflectorMaterial
+                    color="#ffffff"
+                    metalness={0.8}
+                    side={THREE.DoubleSide}
+                />
             </mesh>
 
             <Sun />

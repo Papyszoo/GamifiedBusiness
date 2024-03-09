@@ -10,7 +10,7 @@ import Environment from "./Environment/Environment";
 import { Leva } from "leva";
 
 const App = () => {
-    const [location, setLocation] = useLocation();
+    const [location] = useLocation();
 
     const { locationChanged } = useLocationSettingsStore(
         useShallow((state) => ({

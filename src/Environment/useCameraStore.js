@@ -3,15 +3,15 @@ import { create } from "zustand";
 
 export default create((set) => ({
     targetCameraPosition: new Vector3(-10, -5, 10),
-    targetLookAtPosition: new Vector3(0, 0, 0),
-    setTargetCameraPosition: (targetPosition) => {
+    targetLookAt: null,
+    setTargetCameraPosition: (targetCameraPosition) => {
         set({
-            targetPosition: targetPosition,
+            targetCameraPosition: targetCameraPosition,
         });
     },
-    setTargetLookAtPosition: (targetLookAtPosition) => {
+    setTargetLookAt: (targetLookAt) => {
         set({
-            targetLookAtPosition: targetLookAtPosition,
+            targetLookAt: targetLookAt,
         });
     },
 }));

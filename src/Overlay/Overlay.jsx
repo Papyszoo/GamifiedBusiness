@@ -7,6 +7,8 @@ import { TabPanel, TabView } from "primereact/tabview";
 import { useLocation } from "wouter";
 import HomePage from "./HomePage";
 import { Tabs } from "../Constants";
+import useOptionsStore from "../useOptionsStore";
+import { Button } from "primereact/button";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -19,6 +21,14 @@ const Overlay = () => {
                 environmentLoaded: state.environmentLoaded,
             }))
         );
+
+    const { darkMode, toggleDarkMode } = useOptionsStore(
+        useShallow((state) => ({
+            darkMode: state.darkMode,
+            toggleDarkMode: state.toggleDarkMode,
+        }))
+    );
+
     return (
         <PrimeReactProvider>
             <Dialog
@@ -38,7 +48,10 @@ const Overlay = () => {
                         <HomePage />
                     </TabPanel>
                     <TabPanel leftIcon="pi pi-book" header="Menu">
-                        <p>test</p>
+                        <Button
+                            label={`${darkMode ? "Light" : "Dark"} Mode`}
+                            onClick={toggleDarkMode}
+                        />
                     </TabPanel>
                     <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
                         <p>test</p>
