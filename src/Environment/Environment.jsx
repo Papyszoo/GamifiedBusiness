@@ -33,11 +33,14 @@ const Environment = () => {
     useFrame((state, dt) => {
         if (targetCameraPosition) {
             easing.damp3(state.camera.position, targetCameraPosition, 0.5, dt);
+            if (targetCameraPosition.distanceTo(state.camera.position) < 5) {
+                setTargetCameraPosition(null);
+            }
         }
         if (targetLookAt) {
             easing.dampQ(
                 state.camera.quaternion,
-                targetLookAtPosition,
+                targetLookAt.quaternion,
                 0.5,
                 dt
             );
