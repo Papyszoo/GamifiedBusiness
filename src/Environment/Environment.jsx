@@ -49,7 +49,7 @@ const Environment = () => {
     });
 
     useEffect(() => {
-        if (targetCameraPosition || targetLookAt) {
+        if (targetCameraPosition) {
             controls.current.enabled = false;
         } else {
             controls.current.enabled = true;

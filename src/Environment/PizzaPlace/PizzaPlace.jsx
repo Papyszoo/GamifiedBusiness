@@ -7,6 +7,7 @@ import { UnrealBloomPass } from "three-stdlib";
 import * as THREE from "three";
 import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
+import Pizza from "./Pizza";
 
 extend({ UnrealBloomPass });
 
@@ -18,7 +19,18 @@ export default function PizzaPlace() {
             strength: 0.3,
             radius: 0.3,
         }),
+        pizza1Position: {
+            x: 3,
+            y: -3,
+            z: 3,
+        },
+        pizza2Position: {
+            x: -3,
+            y: -3,
+            z: -3,
+        },
     });
+    console.log(parameters);
 
     const { darkMode } = useOptionsStore(
         useShallow((state) => ({
@@ -36,7 +48,11 @@ export default function PizzaPlace() {
                 />
             </Effects>
             {darkMode ? (
-                <Stars count={400} />
+                <>
+                    <Stars count={400} />
+
+                    <color attach="background" args={["black"]} />
+                </>
             ) : (
                 <Sky
                     distance={450000}
@@ -46,7 +62,8 @@ export default function PizzaPlace() {
                 />
             )}
 
-            <color attach="background" args={["black"]} />
+            <Pizza position={[...Object.values(parameters.pizza1Position)]} />
+            <Pizza position={[...Object.values(parameters.pizza2Position)]} />
 
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
                 <planeGeometry args={[250, 250]} />

@@ -3,6 +3,7 @@ export const Tabs = {
     1: "/menu",
     2: "/cart",
     3: "/customize",
+    3: "/preview",
 };
 
 export const Routes = {
@@ -18,6 +19,11 @@ export const Routes = {
     },
     ["/customize"]: {
         selectedTab: 3,
+        cameraPosition: [0, 0, 12],
+        overlayVisible: false,
+    },
+    ["/preview"]: {
+        selectedTab: 4,
         cameraPosition: [0, 0, 12],
         overlayVisible: false,
     },

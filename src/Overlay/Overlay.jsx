@@ -58,7 +58,11 @@ const Overlay = () => {
                     </TabPanel>
                     <TabPanel
                         leftIcon="pi pi-wrench"
-                        header="Customize"
+                        header="Make your own pizza"
+                    ></TabPanel>
+                    <TabPanel
+                        leftIcon="pi pi-shopping-cart"
+                        header="Preview your order"
                     ></TabPanel>
                 </TabView>
             </Dialog>
