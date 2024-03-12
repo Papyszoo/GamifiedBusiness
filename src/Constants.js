@@ -33,3 +33,44 @@ export const Routes = {
         overlayVisible: true,
     },
 };
+
+export const Sauces = {
+    tomato: "tomato",
+    cream: "cream",
+};
+
+export const Ingredients = {
+    cheese: "cheese",
+    mushrooms: "mushrooms",
+    pepperoni: "pepperoni",
+    bacon: "bacon",
+    ham: "ham",
+    spinach: "spinach",
+    chicken: "chicken",
+    onion: "onion",
+    tomatoes: "tomatoes",
+    salmon: "salmon",
+    olives: "olives",
+};
+
+export const Menu = {
+    margherita: {
+        name: "Margherita",
+        sauce: Sauces.tomato,
+        ingredients: [Ingredients.cheese],
+    },
+    capricciosa: {
+        name: "Capricciosa",
+        sauce: Sauces.tomato,
+        ingredients: [
+            Ingredients.cheese,
+            Ingredients.ham,
+            Ingredients.mushrooms,
+        ],
+    },
+    carbonara: {
+        name: "Carbonara",
+        sauce: Sauces.cream,
+        ingredients: [Ingredients.cheese, Ingredients.bacon],
+    },
+};
