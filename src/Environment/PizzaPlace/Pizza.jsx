@@ -1,46 +1,35 @@
-import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import React from "react";
+import { Sampler, useGLTF } from "@react-three/drei";
 
-export default Pizza = (props) => {
+const Pizza = (props) => {
     const { nodes, materials } = useGLTF("/pizza.glb");
     return (
-        <Sampler count={500} weight="upness" transform={transformInstances}>
-        <group {...props} dispose={null}>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cylinder.geometry}
-                material={materials.Material}
-                scale={[1, 0.045, 1]}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cylinder001.geometry}
-                material={materials["Material.001"]}
-                scale={[1, 0.045, 1]}
-            />
-        </group>
-        <instancedMesh args={[null!, null!, 1_000]}>
+        <Sampler count={500} transform={transformInstances}>
+            <group {...props} dispose={null}>
+                <mesh
+                    name="Dough"
+                    geometry={nodes.Dough.geometry}
+                    material={materials.Dough}
+                />
+                <mesh
+                    name="Cheese"
+                    geometry={nodes.Cheese.geometry}
+                    material={materials.Cheese}
+                />
+            </group>
+            <instancedMesh args={[null, null, 1_000]}>
                 <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
                 <meshNormalMaterial />
-              </instancedMesh>
-            </Sampler>
+            </instancedMesh>
+        </Sampler>
     );
+};
+
+const transformInstances = ({ dummy, position }) => {
+    dummy.position.copy(position);
+    dummy.scale.setScalar(Math.random() * 0.75);
 };
 
 useGLTF.preload("/pizza.glb");
 
-<Sampler count={500} weight="upness" transform={transformInstances}>
-              <mesh>
-                <torusKnotGeometry>
-                  <ComputedAttribute name="upness" compute={computeUpness} />
-                </torusKnotGeometry>
-                <meshNormalMaterial />
-              </mesh>
-      
-              <instancedMesh args={[null!, null!, 1_000]}>
-                <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
-                <meshNormalMaterial />
-              </instancedMesh>
-            </Sampler>
+export default Pizza;

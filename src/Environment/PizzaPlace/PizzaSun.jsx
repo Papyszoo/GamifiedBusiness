@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useControls } from "leva";
+import { useShallow } from "zustand/react/shallow";
+import useCameraStore from "../useCameraStore";
 
 export function PizzaSun(props) {
     const { nodes, materials } = useGLTF("/pizzaSun.glb");
+    const pizzaSunRef = useRef();
     const pizzaSunParameters = useControls("Pizza Sun", {
         position: {
             x: -80,
@@ -16,8 +19,20 @@ export function PizzaSun(props) {
             z: 0,
         },
     });
+    const { setTargetLookAt } = useCameraStore(
+        useShallow((state) => ({
+            setTargetLookAt: state.setTargetLookAt,
+        }))
+    );
+
+    useEffect(() => {
+        if (pizzaSunRef.current) {
+            setTargetLookAt(pizzaSunRef.current);
+        }
+    }, []);
     return (
         <group
+            ref={pizzaSunRef}
             {...props}
             dispose={null}
             position={[...Object.values(pizzaSunParameters.position)]}

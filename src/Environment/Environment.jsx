@@ -63,7 +63,7 @@ const Environment = () => {
             <orbitControls
                 ref={controls}
                 args={[three.camera, three.gl.domElement]}
-                enableZoom={false}
+                // enableZoom={false}
                 enablePan={false}
                 maxPolarAngle={Math.PI / 2}
             />
