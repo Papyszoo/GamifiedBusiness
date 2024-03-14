@@ -28,8 +28,6 @@ const Environment = () => {
         }))
     );
 
-    console.log(three.raycaster);
-
     useFrame((state, dt) => {
         if (targetCameraPosition) {
             easing.damp3(state.camera.position, targetCameraPosition, 0.5, dt);

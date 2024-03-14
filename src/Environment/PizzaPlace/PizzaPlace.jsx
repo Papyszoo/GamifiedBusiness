@@ -30,7 +30,6 @@ export default function PizzaPlace() {
             z: -3,
         },
     });
-    console.log(parameters);
 
     const { darkMode } = useOptionsStore(
         useShallow((state) => ({

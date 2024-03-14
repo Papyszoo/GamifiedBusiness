@@ -4,13 +4,13 @@ import { Sampler, useGLTF } from "@react-three/drei";
 const Pizza = (props) => {
     const { nodes, materials } = useGLTF("/pizza.glb");
     return (
-        <Sampler count={500} transform={transformInstances}>
-            <group {...props} dispose={null}>
-                <mesh
-                    name="Dough"
-                    geometry={nodes.Dough.geometry}
-                    material={materials.Dough}
-                />
+        <group {...props} dispose={null}>
+            <mesh
+                name="Dough"
+                geometry={nodes.Dough.geometry}
+                material={materials.Dough}
+            />
+            <Sampler count={500} weight="upness" transform={transformInstances}>
                 <mesh
                     name="Cheese"
                     geometry={nodes.Cheese.geometry}
@@ -20,8 +20,8 @@ const Pizza = (props) => {
                     <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
                     <meshNormalMaterial />
                 </instancedMesh>
-            </group>
-        </Sampler>
+            </Sampler>
+        </group>
     );
 };
 
