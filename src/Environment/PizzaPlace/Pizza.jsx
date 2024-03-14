@@ -16,11 +16,11 @@ const Pizza = (props) => {
                     geometry={nodes.Cheese.geometry}
                     material={materials.Cheese}
                 />
+                <instancedMesh args={[null, null, 1_000]}>
+                    <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
+                    <meshNormalMaterial />
+                </instancedMesh>
             </group>
-            <instancedMesh args={[null, null, 1_000]}>
-                <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
-                <meshNormalMaterial />
-            </instancedMesh>
         </Sampler>
     );
 };
