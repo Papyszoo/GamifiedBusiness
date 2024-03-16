@@ -1,18 +1,18 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-const Bacon = (props) => {
+const Bacon = forwardRef((props, ref) => {
     const { nodes, materials } = useGLTF("/bacon.glb");
     return (
-        <group {...props} dispose={null}>
-            <mesh
-                name="Bacon"
-                geometry={nodes.Bacon.geometry}
-                material={materials.Bacon}
-            />
-        </group>
+        <instancedMesh
+            args={[null, null, 16]}
+            ref={ref}
+            name="Bacon"
+            geometry={nodes.Bacon.geometry}
+            material={materials.Bacon}
+        />
     );
-};
+});
 
 useGLTF.preload("/bacon.glb");
 

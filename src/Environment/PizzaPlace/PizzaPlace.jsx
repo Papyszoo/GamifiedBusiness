@@ -21,9 +21,9 @@ export default function PizzaPlace() {
             radius: 0.3,
         }),
         pizza1Position: {
-            x: 3,
-            y: -3,
-            z: 3,
+            x: 0,
+            y: -1,
+            z: 0,
         },
         pizza2Position: {
             x: -3,
