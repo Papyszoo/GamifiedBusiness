@@ -1,17 +1,19 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export const Ham = (props) => {
+const Ham = forwardRef((props, ref) => {
     const { nodes, materials } = useGLTF("/ham.glb");
     return (
-        <group {...props} dispose={null}>
-            <mesh
-                name="Ham"
-                geometry={nodes.Ham.geometry}
-                material={materials.Ham}
-            />
-        </group>
+        <instancedMesh
+            args={[null, null, 16]}
+            ref={ref}
+            name="Ham"
+            geometry={nodes.Ham.geometry}
+            material={materials.Ham}
+        />
     );
-};
+});
 
 useGLTF.preload("/ham.glb");
+
+export default Ham;

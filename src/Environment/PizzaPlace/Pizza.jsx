@@ -1,26 +1,34 @@
-import React from "react";
-import { Sampler, useGLTF } from "@react-three/drei";
+import React, { useRef, useEffect } from "react";
+import { Sampler, useGLTF, useSurfaceSampler } from "@react-three/drei";
+import { Ingredients } from "../../Constants";
+import Bacon from "../Ingredients/Bacon";
+import Ham from "../Ingredients/Ham";
 
-const Pizza = (props) => {
+const Pizza = ({ position, rotation, ingredients }) => {
     const { nodes, materials } = useGLTF("/pizza.glb");
+    const cheeseRef = useRef();
+    const hamRef = useRef();
+
     return (
-        <group {...props} dispose={null}>
+        <group position={position} rotation={rotation} dispose={null}>
             <mesh
                 name="Dough"
                 geometry={nodes.Dough.geometry}
                 material={materials.Dough}
             />
-            <Sampler count={500} weight="upness" transform={transformInstances}>
-                <mesh
-                    name="Cheese"
-                    geometry={nodes.Cheese.geometry}
-                    material={materials.Cheese}
-                />
-                <instancedMesh args={[null, null, 1_000]}>
-                    <sphereGeometry args={[0.1, 32, 32, Math.PI / 2]} />
-                    <meshNormalMaterial />
-                </instancedMesh>
-            </Sampler>
+            <mesh
+                name="Cheese"
+                ref={cheeseRef}
+                geometry={nodes.Cheese.geometry}
+                material={materials.Cheese}
+            />
+            <Ham ref={hamRef} position-y={0.15} />
+            <Sampler
+                count={16}
+                transform={transformInstances}
+                mesh={cheeseRef}
+                instances={hamRef}
+            />
         </group>
     );
 };

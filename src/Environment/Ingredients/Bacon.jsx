@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 
-export const Bacon = (props) => {
+const Bacon = (props) => {
     const { nodes, materials } = useGLTF("/bacon.glb");
     return (
         <group {...props} dispose={null}>
@@ -15,3 +15,5 @@ export const Bacon = (props) => {
 };
 
 useGLTF.preload("/bacon.glb");
+
+export default Bacon;
