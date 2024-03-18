@@ -45,3 +45,5 @@ On Top Level there are two main folders:
 
 -   public - contains static files
 -   src - contains project code
+    -   Environment - 3D environment code
+    -   Overlay - Code related to HTML Overlay on top of 3D environment
