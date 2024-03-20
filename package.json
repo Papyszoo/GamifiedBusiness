@@ -29,6 +29,7 @@
         "react-dom": "18.2",
         "three": "^0.162.0",
         "three-stdlib": "^2.29.5",
+        "vite-plugin-glsl": "^1.2.1",
         "wouter": "^3.0.2",
         "zustand": "^4.5.2"
     }
