@@ -1,10 +1,9 @@
-import { Effects, MeshReflectorMaterial, Sky, Stars } from "@react-three/drei";
-import { useThree, extend } from "@react-three/fiber";
+import { Effects, Sky, Stars } from "@react-three/drei";
+import { extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
 import Sun from "./Sun";
 import { PizzaSun } from "./PizzaSun";
 import { UnrealBloomPass } from "three-stdlib";
-import * as THREE from "three";
 import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import Pizza from "./Pizza";
@@ -14,7 +13,6 @@ import { FloatingIsland } from "./FloatingIsland";
 extend({ UnrealBloomPass });
 
 export default function PizzaPlace() {
-    const { camera, gl } = useThree();
     const parameters = useControls("PizzaPlace", {
         bloomPass: folder({
             threshold: 1,
@@ -68,15 +66,6 @@ export default function PizzaPlace() {
                 ingredients={[Ingredients.bacon, Ingredients.ham]}
             />
             <Pizza position={[...Object.values(parameters.pizza2Position)]} />
-
-            {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
-                <planeGeometry args={[250, 250]} />
-                <MeshReflectorMaterial
-                    color="#ffffff"
-                    metalness={0.8}
-                    side={THREE.DoubleSide}
-                />
-            </mesh> */}
             <FloatingIsland position={[0, -5, 0]} />
 
             <Sun />
