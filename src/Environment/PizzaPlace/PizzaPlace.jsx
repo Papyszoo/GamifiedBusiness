@@ -9,6 +9,7 @@ import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import Pizza from "./Pizza";
 import { Ingredients } from "../../Constants";
+import { FloatingIsland } from "./FloatingIsland";
 
 extend({ UnrealBloomPass });
 
@@ -68,14 +69,15 @@ export default function PizzaPlace() {
             />
             <Pizza position={[...Object.values(parameters.pizza2Position)]} />
 
-            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
+            {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
                 <planeGeometry args={[250, 250]} />
                 <MeshReflectorMaterial
                     color="#ffffff"
                     metalness={0.8}
                     side={THREE.DoubleSide}
                 />
-            </mesh>
+            </mesh> */}
+            <FloatingIsland position={[0, -5, 0]} />
 
             <Sun />
             <PizzaSun />
