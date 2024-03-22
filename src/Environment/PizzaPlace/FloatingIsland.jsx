@@ -1,5 +1,9 @@
 import React from "react";
 import { MeshReflectorMaterial, useGLTF } from "@react-three/drei";
+import floorVertexShader from "./shaders/floorVertex.glsl";
+import floorFragmentShader from "./shaders/floorFragment.glsl";
+import islandVertexShader from "./shaders/islandVertex.glsl";
+import islandFragmentShader from "./shaders/islandFragment.glsl";
 import * as THREE from "three";
 
 export function FloatingIsland(props) {
@@ -12,7 +16,11 @@ export function FloatingIsland(props) {
                 receiveShadow
                 geometry={nodes.Island.geometry}
             >
-                <meshBasicMaterial color="grey" />
+                <shaderMaterial
+                    vertexShader={islandVertexShader}
+                    fragmentShader={islandFragmentShader}
+                />
+                {/* <meshBasicMaterial color="grey" /> */}
             </mesh>
             <mesh
                 name="Floor"
@@ -20,10 +28,9 @@ export function FloatingIsland(props) {
                 receiveShadow
                 geometry={nodes.Floor.geometry}
             >
-                <MeshReflectorMaterial
-                    color="#ffffff"
-                    metalness={0.9}
-                    side={THREE.DoubleSide}
+                <shaderMaterial
+                    vertexShader={floorVertexShader}
+                    fragmentShader={floorFragmentShader}
                 />
             </mesh>
         </group>

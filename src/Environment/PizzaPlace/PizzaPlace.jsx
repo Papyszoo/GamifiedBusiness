@@ -19,6 +19,16 @@ export default function PizzaPlace() {
             strength: 0.3,
             radius: 0.3,
         }),
+        sky: folder({
+            distance: 450000,
+            sunPosition: {
+                x: 20000,
+                y: 20000,
+                z: 20000,
+            },
+            inclination: 0.3,
+            azimuth: 5.25,
+        }),
         pizza1Position: {
             x: 0,
             y: -1,
@@ -55,9 +65,13 @@ export default function PizzaPlace() {
             ) : (
                 <Sky
                     distance={450000}
-                    sunPosition={[0, 1, 0]}
-                    inclination={0}
-                    azimuth={0.25}
+                    sunPosition={[
+                        parameters.sunPosition.x,
+                        parameters.sunPosition.y,
+                        parameters.sunPosition.z,
+                    ]}
+                    inclination={parameters.inclination}
+                    azimuth={5.25}
                 />
             )}
 
