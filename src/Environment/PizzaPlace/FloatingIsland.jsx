@@ -33,6 +33,10 @@ export function FloatingIsland(props) {
                     fragmentShader={floorFragmentShader}
                 />
             </mesh>
+
+            <mesh castShadow receiveShadow geometry={nodes.Roof.geometry}>
+                <meshBasicMaterial color="#990000" />
+            </mesh>
         </group>
     );
 }
