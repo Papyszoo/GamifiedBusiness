@@ -31,7 +31,8 @@ const IngredientSampler = ({ ingredient, cheeseRef }) => {
 
 const transformInstances = ({ dummy, position }) => {
     dummy.position.copy(position);
-    dummy.scale.setScalar(Math.random() * 0.75);
+    dummy.scale.setScalar(0.8 - Math.random() * 0.5);
+    dummy.rotation.y = (Math.random() * Math.PI) / 2;
 };
 
 export default IngredientSampler;

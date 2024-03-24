@@ -35,7 +35,7 @@ export function FloatingIsland(props) {
             </mesh>
 
             <mesh castShadow receiveShadow geometry={nodes.Roof.geometry}>
-                <meshBasicMaterial color="#990000" />
+                <meshBasicMaterial color="#990000" side={THREE.DoubleSide} />
             </mesh>
         </group>
     );
