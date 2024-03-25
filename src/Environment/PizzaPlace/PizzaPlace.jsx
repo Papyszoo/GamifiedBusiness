@@ -9,6 +9,7 @@ import { useShallow } from "zustand/react/shallow";
 import Pizza from "./Pizza";
 import { Ingredients } from "../../Constants";
 import { FloatingIsland } from "./FloatingIsland";
+import PizzaParticles from "./PizzaParticles";
 
 extend({ UnrealBloomPass });
 
@@ -56,6 +57,7 @@ export default function PizzaPlace() {
                     radius={parameters.radius}
                 />
             </Effects>
+            <PizzaParticles />
             {darkMode ? (
                 <>
                     <Stars count={400} />
