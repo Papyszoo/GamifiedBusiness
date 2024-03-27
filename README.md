@@ -3,6 +3,10 @@
 > [!NOTE]
 > This repository is part of [100 commitów](https://100commitow.pl/) contest
 
+## Live Site URL
+
+[You can check out my progress here](https://gamified-business.vercel.app/)
+
 ## Purpose
 
 This project was created to try to map real life business process into fun mini game.
@@ -13,9 +17,10 @@ This project was created to try to map real life business process into fun mini 
 
 -   [x] Create environment
 -   [x] Create UI on top of 3D environment
--   [ ] Implement light \ dark mode
--   [ ] Deploy on github pages
+-   [x] Deploy app
+-   [x] Implement light \ dark mode
 -   [ ] Create models: building, pizza, ingredients, furnace
+-   [ ] Build overlay pages
 
 ## :keyboard: Commands
 
