@@ -18,7 +18,8 @@
         "vitest": "^1.4.0"
     },
     "dependencies": {
-        "@react-three/drei": "^9.99.5",
+        "@react-spring/core": "^9.7.3",
+        "@react-three/drei": "^9.103.0",
         "@react-three/fiber": "^8.15.16",
         "leva": "^0.9.35",
         "maath": "^0.10.7",
