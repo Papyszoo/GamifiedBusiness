@@ -3,7 +3,7 @@ export const Tabs = {
     1: "/menu",
     2: "/cart",
     3: "/customize",
-    3: "/preview",
+    4: "/preview",
 };
 
 export const Routes = {
