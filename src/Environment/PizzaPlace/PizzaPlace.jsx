@@ -1,15 +1,14 @@
 import { Effects, Sky, Stars } from "@react-three/drei";
 import { extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
-import Sun from "./Sun";
 import { PizzaSun } from "./PizzaSun";
 import { UnrealBloomPass } from "three-stdlib";
 import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
-import Pizza from "./Pizza";
-import { Ingredients } from "../../Constants";
 import { FloatingIsland } from "./FloatingIsland";
-import PizzaParticles from "./PizzaParticles";
+import FloorPreview from "./Floors/FloorPreview";
+import FloorCustomize from "./Floors/FloorCustomize";
+import { Route } from "wouter";
 
 extend({ UnrealBloomPass });
 
@@ -30,16 +29,6 @@ export default function PizzaPlace() {
             inclination: 0.3,
             azimuth: 5.25,
         }),
-        pizza1Position: {
-            x: 0,
-            y: -1,
-            z: 0,
-        },
-        pizza2Position: {
-            x: -3,
-            y: -3,
-            z: -3,
-        },
     });
 
     const { darkMode } = useOptionsStore(
@@ -57,12 +46,12 @@ export default function PizzaPlace() {
                     radius={parameters.radius}
                 />
             </Effects>
-            <PizzaParticles />
             {darkMode ? (
                 <>
                     <Stars count={400} />
 
                     <color attach="background" args={["black"]} />
+                    <PizzaSun />
                 </>
             ) : (
                 <Sky
@@ -77,16 +66,12 @@ export default function PizzaPlace() {
                 />
             )}
 
-            <Pizza
-                position={[...Object.values(parameters.pizza1Position)]}
-                ingredients={[Ingredients.bacon, Ingredients.ham]}
-            />
-            <Pizza position={[...Object.values(parameters.pizza2Position)]} />
             <FloatingIsland position={[0, -5, 0]} />
 
-            <Sun />
-            <PizzaSun />
             <ambientLight intensity={1.5} />
+
+            <Route path="/preview" component={FloorPreview} />
+            <Route path="/customize" component={FloorCustomize} />
         </>
     );
 }
