@@ -6,13 +6,15 @@ import { UnrealBloomPass } from "three-stdlib";
 import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
-import FloorPreview from "./Floors/FloorPreview";
-import FloorCustomize from "./Floors/FloorCustomize";
-import { Route } from "wouter";
+import { useLocation } from "wouter";
+import { useTransition } from "@react-spring/core";
+import Floors from "./Floors/Floors";
+import { Suspense } from "react";
 
 extend({ UnrealBloomPass });
 
 export default function PizzaPlace() {
+    const [location] = useLocation();
     const parameters = useControls("PizzaPlace", {
         bloomPass: folder({
             threshold: 1,
@@ -36,6 +38,28 @@ export default function PizzaPlace() {
             darkMode: state.darkMode,
         }))
     );
+
+    const transition = useTransition(location, {
+        from: {
+            position: [0, 100, 0],
+            rotation: [0, Math.PI, 0],
+            scale: [0, 0, 0],
+            opacity: 0,
+        },
+        enter: {
+            position: [0, 0, 0],
+            rotation: [0, 0, 0],
+            scale: [1, 1, 1],
+            opacity: 1,
+        },
+        leave: {
+            position: [0, -50, 0],
+            rotation: [0, -Math.PI, 0],
+            scale: [0, 0, 0],
+            opacity: 0,
+        },
+        config: () => (n) => n === "opacity" && { friction: 60 },
+    });
 
     return (
         <>
@@ -68,10 +92,11 @@ export default function PizzaPlace() {
 
             <FloatingIsland position={[0, -5, 0]} />
 
-            <ambientLight intensity={1.5} />
+            <Suspense fallback={null}>
+                <Floors transition={transition} />
+            </Suspense>
 
-            <Route path="/preview" component={FloorPreview} />
-            <Route path="/customize" component={FloorCustomize} />
+            <ambientLight intensity={1.5} />
         </>
     );
 }
