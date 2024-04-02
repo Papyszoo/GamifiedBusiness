@@ -2,7 +2,7 @@ import React from "react";
 import Pizza from "../Pizza";
 import { Ingredients } from "../../../Constants";
 
-const FloorMenu = () => {
+const FloorPreview = () => {
     return (
         <>
             <Pizza
@@ -14,4 +14,4 @@ const FloorMenu = () => {
     );
 };
 
-export default FloorMenu;
+export default FloorPreview;
