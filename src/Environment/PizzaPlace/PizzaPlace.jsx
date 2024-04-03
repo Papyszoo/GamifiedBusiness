@@ -7,7 +7,7 @@ import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
 import { useLocation } from "wouter";
-import { useTransition } from "@react-spring/core";
+import { useSpringRef, useTransition } from "@react-spring/core";
 import Floors from "./Floors/Floors";
 import { Suspense } from "react";
 
@@ -39,19 +39,11 @@ export default function PizzaPlace() {
         }))
     );
 
+    const transRef = useSpringRef();
     const transition = useTransition(location, {
-        from: {
-            position: [0, 100, 0],
-            rotation: [0, Math.PI, 0],
-            scale: [0, 0, 0],
-            opacity: 0,
-        },
-        enter: {
-            position: [0, 0, 0],
-            rotation: [0, 0, 0],
-            scale: [1, 1, 1],
-            opacity: 1,
-        },
+        ref: transRef,
+        from: { scale: [0.1, 0.1, 0.1] },
+        enter: { scale: [1, 1, 1] },
         leave: {
             position: [0, -50, 0],
             rotation: [0, -Math.PI, 0],
@@ -93,7 +85,7 @@ export default function PizzaPlace() {
             <FloatingIsland position={[0, -5, 0]} />
 
             <Suspense fallback={null}>
-                <Floors transition={transition} />
+                <Floors transition={transition} transRef={transRef} />
             </Suspense>
 
             <ambientLight intensity={1.5} />
