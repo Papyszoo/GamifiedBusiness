@@ -19,8 +19,12 @@ This project was created to try to map real life business process into fun mini 
 -   [x] Create UI on top of 3D environment
 -   [x] Deploy app
 -   [x] Implement light \ dark mode
+-   [ ] Add few floors matching layout page
+-   [ ] Add Animations
 -   [ ] Create models: building, pizza, ingredients, furnace
 -   [ ] Build overlay pages
+-   [ ] Add tests
+-   [ ] Handle Ordering and Fake Checkout
 
 ## :keyboard: Commands
 
