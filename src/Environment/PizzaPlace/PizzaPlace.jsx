@@ -8,6 +8,7 @@ import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
 import { useLocation } from "wouter";
 import { useSpringRef, useTransition } from "@react-spring/core";
+import { config } from "@react-spring/three";
 import Floors from "./Floors/Floors";
 import { Suspense } from "react";
 
@@ -50,7 +51,7 @@ export default function PizzaPlace() {
             scale: [0, 0, 0],
             opacity: 0,
         },
-        config: () => (n) => n === "opacity" && { friction: 60 },
+        config: config.gentle,
     });
 
     return (
