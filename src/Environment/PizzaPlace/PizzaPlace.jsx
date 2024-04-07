@@ -6,16 +6,12 @@ import { UnrealBloomPass } from "three-stdlib";
 import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
-import { useLocation } from "wouter";
-import { useSpringRef, useTransition } from "@react-spring/core";
-import { config } from "@react-spring/three";
 import Floors from "./Floors/Floors";
 import { Suspense } from "react";
 
 extend({ UnrealBloomPass });
 
 export default function PizzaPlace() {
-    const [location] = useLocation();
     const parameters = useControls("PizzaPlace", {
         bloomPass: folder({
             threshold: 1,
@@ -39,21 +35,6 @@ export default function PizzaPlace() {
             darkMode: state.darkMode,
         }))
     );
-
-    const transRef = useSpringRef();
-    const transition = useTransition(location, {
-        ref: transRef,
-        from: { scale: [0.1, 0.1, 0.1] },
-        enter: { scale: [1, 1, 1] },
-        leave: {
-            position: [0, -50, 0],
-            rotation: [0, -Math.PI, 0],
-            scale: [0, 0, 0],
-            opacity: 0,
-        },
-        config: config.gentle,
-    });
-
     return (
         <>
             <Effects disableGamma>
@@ -86,7 +67,7 @@ export default function PizzaPlace() {
             <FloatingIsland position={[0, -5, 0]} />
 
             <Suspense fallback={null}>
-                <Floors transition={transition} transRef={transRef} />
+                <Floors />
             </Suspense>
 
             <ambientLight intensity={1.5} />
