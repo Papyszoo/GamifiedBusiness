@@ -19,22 +19,13 @@ const Floors = () => {
         ref: transRef,
         from: {
             position: [0, 25, 0],
-            scale: [0.2, 0.2, 0.2],
-            // rotation: [0, Math.PI, 0],
-            // opacity: 0,
         },
 
         enter: {
             position: [0, 0, 0],
-            scale: [1, 1, 1],
-            // rotation: [0, 0, 0],
-            // opacity: 1,
         },
         leave: {
             position: [0, -50, 0],
-            scale: [0.2, 0.2, 0.2],
-            // rotation: [0, -Math.PI, 0],
-            // opacity: 0,
         },
         config: config.gentle,
     });
@@ -54,13 +45,17 @@ const Floors = () => {
     useChain([transRef, springRef], [0, 1]);
 
     return transition((props, location) => (
-        <a.group {...props} scale={scale}>
+        <a.group>
             <Switch location={location}>
                 <Route path="/preview">
-                    <FloorPreview />
+                    <a.group {...props} scale={scale}>
+                        <FloorPreview />
+                    </a.group>
                 </Route>
                 <Route path="/customize">
-                    <FloorCustomize />
+                    <a.group {...props} scale={scale}>
+                        <FloorCustomize />
+                    </a.group>
                 </Route>
             </Switch>
         </a.group>
