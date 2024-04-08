@@ -2,7 +2,7 @@ import React from "react";
 import { useSpring } from "@react-spring/core";
 import { config, a } from "@react-spring/three";
 
-const FloorContainer = ({ children }) => {
+const AnimatedExpand = ({ children }) => {
     const { scale } = useSpring({
         from: {
             scale: [0.2, 0.2, 0.2],
@@ -17,4 +17,4 @@ const FloorContainer = ({ children }) => {
     return <a.group scale={scale}>{children}</a.group>;
 };
 
-export default FloorContainer;
+export default AnimatedExpand;
