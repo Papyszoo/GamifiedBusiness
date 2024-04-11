@@ -12,6 +12,7 @@ export function Belt(props) {
     return (
         <group ref={group} {...props} dispose={null}>
             <group name="Scene">
+                <group name="Curve" />
                 <mesh
                     name="Belt"
                     castShadow
