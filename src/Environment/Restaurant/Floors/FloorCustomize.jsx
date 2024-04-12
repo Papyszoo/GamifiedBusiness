@@ -1,5 +1,5 @@
 import React from "react";
-import PizzaParticles from "../PizzaParticles";
+import PizzaParticles from "../../Models/PizzaParticles";
 
 const FloorCustomize = () => {
     return (

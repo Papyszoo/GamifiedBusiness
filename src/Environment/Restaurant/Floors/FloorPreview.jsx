@@ -1,5 +1,5 @@
 import React from "react";
-import Pizza from "../Pizza";
+import Pizza from "../../Pizza/Pizza";
 import { Ingredients } from "../../../Constants";
 import { Belt } from "../../Models/Belt";
 

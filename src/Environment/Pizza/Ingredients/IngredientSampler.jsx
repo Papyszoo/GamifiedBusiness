@@ -1,8 +1,8 @@
-import React, { useRef, createElement } from "react";
-import { Ingredients } from "../../Constants";
+import React, { useRef, createElement, useState } from "react";
+import { Ingredients } from "../../../Constants";
 import Ham from "./Ham";
 import Bacon from "./Bacon";
-import { Sampler } from "@react-three/drei";
+import { Sampler, useSurfaceSampler } from "@react-three/drei";
 
 const IngredientsObjects = {
     [Ingredients.ham]: Ham,
@@ -11,22 +11,23 @@ const IngredientsObjects = {
 
 const IngredientSampler = ({ ingredient, cheeseRef }) => {
     var ingredientRef = useRef();
+    const [mergedElement, setmergedElement] = useState(null);
     var props = {
         ref: ingredientRef,
+        setmergedElement: setmergedElement,
     };
     var element = createElement(IngredientsObjects[ingredient], props);
 
-    return (
-        <>
-            {element}
-            <Sampler
-                count={16}
-                transform={transformInstances}
-                mesh={cheeseRef}
-                instances={ingredientRef}
-            />
-        </>
+    console.log(ingredientRef);
+    const buffer = useSurfaceSampler(
+        cheeseRef,
+        16,
+        transformInstances,
+        undefined,
+        ingredientRef
     );
+
+    return { element };
 };
 
 const transformInstances = ({ dummy, position }) => {

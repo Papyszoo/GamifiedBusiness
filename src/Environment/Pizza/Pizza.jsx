@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import IngredientSampler from "../Ingredients/IngredientSampler";
+import IngredientSampler from "../Pizza/Ingredients/IngredientSampler";
 
 const Pizza = ({ position, rotation, ingredients }) => {
     const { nodes, materials } = useGLTF("/pizza.glb");

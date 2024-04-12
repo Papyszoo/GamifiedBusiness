@@ -1,6 +1,6 @@
 import { Perf } from "r3f-perf";
 import React, { useRef, useEffect } from "react";
-import PizzaPlace from "./PizzaPlace/PizzaPlace";
+import FakePizzeria from "./Restaurant/FakePizzeria";
 import { useFrame, useThree, extend } from "@react-three/fiber";
 import { useShallow } from "zustand/react/shallow";
 import useCameraStore from "./useCameraStore";
@@ -57,7 +57,7 @@ const Environment = () => {
     return (
         <Bvh>
             <Perf position="bottom-left" />
-            <PizzaPlace />
+            <FakePizzeria />
             <orbitControls
                 ref={controls}
                 args={[three.camera, three.gl.domElement]}
