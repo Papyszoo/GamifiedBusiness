@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useRef } from "react";
-import { Instance, Instances, Merged, useGLTF } from "@react-three/drei";
+import React, { useEffect, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 const Bacon = ({ count, setMatrices }) => {
@@ -8,8 +8,8 @@ const Bacon = ({ count, setMatrices }) => {
     const ref2 = useRef();
 
     useEffect(() => {
-        ref1.current.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
-        ref2.current.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        ref1.current.material.side = THREE.DoubleSide;
+        ref2.current.material.side = THREE.DoubleSide;
 
         setMatrices([ref1.current, ref2.current]);
     }, []);
@@ -17,39 +17,20 @@ const Bacon = ({ count, setMatrices }) => {
     return (
         <>
             <instancedMesh
-                scale={20}
+                args={[null, null, count]}
                 geometry={nodes.Mesh_bacon.geometry}
-                material={materials.brown}
                 ref={ref1}
-                count={count}
-            />
+            >
+                <meshBasicMaterial color="#f6caa5" />
+            </instancedMesh>
             <instancedMesh
-                scale={20}
+                args={[null, null, count]}
                 geometry={nodes.Mesh_bacon_1.geometry}
                 material={materials.brownDark}
                 ref={ref2}
-                count={count}
-            />
-            {/* <instancedMesh
-                args={[null, null, 16]}
-                ref={ref}
-                geometry={mergedRef.current.geometry}
-            /> */}
-
-            {/* <Merged meshes={nodes} limit={16} ref={ref}>
-                {({ Mesh_bacon, Mesh_bacon_1 }) => (
-                    <>
-                        <mesh
-                            geometry={Mesh_bacon.geometry}
-                            material={materials.brown}
-                        />
-                        <mesh
-                            geometry={Mesh_bacon_1.geometry}
-                            material={materials.brownDark}
-                        />
-                    </>
-                )}
-            </Merged> */}
+            >
+                <meshBasicMaterial color="#de9571" />
+            </instancedMesh>
         </>
     );
 };

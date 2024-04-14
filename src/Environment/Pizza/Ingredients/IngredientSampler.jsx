@@ -2,7 +2,7 @@ import React, { useRef, createElement, useState } from "react";
 import { Ingredients } from "../../../Constants";
 import Ham from "./Ham";
 import Bacon from "./Bacon";
-import { Sampler, useSurfaceSampler } from "@react-three/drei";
+import { useSurfaceSampler } from "@react-three/drei";
 
 const IngredientsObjects = {
     [Ingredients.ham]: Ham,

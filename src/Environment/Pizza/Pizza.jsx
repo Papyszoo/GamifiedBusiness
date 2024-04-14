@@ -39,6 +39,9 @@ const Pizza = ({ position, rotation, ingredients }) => {
 
             dummy.position.copy(_position);
             dummy.lookAt(_normal);
+            dummy.rotation.x = dummy.rotation.z = Math.PI;
+            dummy.scale.setScalar(1.5 - Math.random() * 0.5);
+            dummy.rotation.y = (Math.random() * Math.PI) / 2;
             dummy.updateMatrix();
             meshes.forEach((mesh) => {
                 mesh.setMatrixAt(i, dummy.matrix);
