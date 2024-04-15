@@ -20,13 +20,35 @@ export default create((set, get) => ({
             }));
         }
     },
-    incrementInCart: (pizzaType) => {
+    incrementQuantityInCart: (pizzaName) => {
         set((state) => ({
-            cart: cart.map((cartPizza) =>
-                cartPizza.name === pizza.name
+            cart: state.cart.map((cartPizza) =>
+                cartPizza.name === pizzaName
                     ? { ...cartPizza, quantity: cartPizza.quantity + 1 }
                     : cartPizza
             ),
+        }));
+    },
+    decrementQuantityInCart: (pizzaName) => {
+        const currentCart = get().cart;
+        const pizzaToModify = currentCart.find((p) => p.name === pizzaName);
+        if (pizzaToModify.quantity === 1) {
+            set({
+                cart: currentCart.filter((p) => p.name != pizzaName),
+            });
+        } else {
+            pizzaToModify.quantity -= 1;
+            set({
+                cart: [
+                    currentCart.filter((p) => p.name != pizzaName),
+                    pizzaToModify,
+                ],
+            });
+        }
+    },
+    removePizzaFromCart: (pizzaName) => {
+        set((state) => ({
+            cart: state.cart.filter((p) => p.name !== pizzaName),
         }));
     },
 }));

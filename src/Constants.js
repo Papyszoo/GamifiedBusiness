@@ -53,13 +53,13 @@ export const Ingredients = {
     olives: "olives",
 };
 
-export const Menu = {
-    margherita: {
+export const Menu = [
+    {
         name: "Margherita",
         sauce: Sauces.tomato,
         ingredients: [Ingredients.cheese],
     },
-    capricciosa: {
+    {
         name: "Capricciosa",
         sauce: Sauces.tomato,
         ingredients: [
@@ -68,12 +68,12 @@ export const Menu = {
             Ingredients.mushrooms,
         ],
     },
-    carbonara: {
+    {
         name: "Carbonara",
         sauce: Sauces.cream,
         ingredients: [Ingredients.cheese, Ingredients.bacon],
     },
-    custom: {
+    {
         name: "Custom",
     },
-};
+];

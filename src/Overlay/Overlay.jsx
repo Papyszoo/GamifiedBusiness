@@ -10,6 +10,7 @@ import { Tabs } from "../Constants";
 import useOptionsStore from "../useOptionsStore";
 import { Button } from "primereact/button";
 import CartPage from "./CartPage";
+import MenuPage from "./MenuPage";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -47,12 +48,13 @@ const Overlay = () => {
                 >
                     <TabPanel leftIcon="pi pi-home" header="Home">
                         <HomePage />
-                    </TabPanel>
-                    <TabPanel leftIcon="pi pi-book" header="Menu">
                         <Button
                             label={`${darkMode ? "Light" : "Dark"} Mode`}
                             onClick={toggleDarkMode}
                         />
+                    </TabPanel>
+                    <TabPanel leftIcon="pi pi-book" header="Menu">
+                        <MenuPage />
                     </TabPanel>
                     <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
                         <CartPage />
