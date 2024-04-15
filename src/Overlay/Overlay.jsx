@@ -9,6 +9,7 @@ import HomePage from "./HomePage";
 import { Tabs } from "../Constants";
 import useOptionsStore from "../useOptionsStore";
 import { Button } from "primereact/button";
+import CartPage from "./CartPage";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -54,7 +55,7 @@ const Overlay = () => {
                         />
                     </TabPanel>
                     <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
-                        <p>test</p>
+                        <CartPage />
                     </TabPanel>
                     <TabPanel
                         leftIcon="pi pi-wrench"

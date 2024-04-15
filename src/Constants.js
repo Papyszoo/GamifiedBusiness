@@ -73,4 +73,7 @@ export const Menu = {
         sauce: Sauces.cream,
         ingredients: [Ingredients.cheese, Ingredients.bacon],
     },
+    custom: {
+        name: "Custom",
+    },
 };
