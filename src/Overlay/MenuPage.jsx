@@ -8,33 +8,29 @@ import { Button } from "primereact/button";
 import { InputNumber } from "primereact/inputnumber";
 
 const MenuPage = () => {
-    const {
-        cart,
-        addToCart,
-        decrementQuantityInCart,
-        incrementQuantityInCart,
-    } = useCart(
+    const { cart, addToCart, decrementQuantityInCart } = useCart(
         useShallow((state) => ({
             cart: state.cart,
             addToCart: state.addToCart,
             decrementQuantityInCart: state.decrementQuantityInCart,
-            incrementQuantityInCart: state.incrementQuantityInCart,
         }))
     );
 
     const cartActionsBody = (rowData) => {
+        console.log(rowData);
+        console.log(cart);
+        const quantity = cart.find((p) => p.name === rowData.name)?.quantity;
         return (
             <>
                 <Button
                     icon="pi pi-minus"
                     onClick={() => decrementQuantityInCart(rowData.name)}
+                    disabled={quantity === null || quantity === undefined}
                 />
-                <InputNumber
-                    value={cart.find((p) => p.name === rowData.name)}
-                />
+                <InputNumber value={quantity ?? 0} />
                 <Button
                     icon="pi pi-plus"
-                    onClick={() => incrementQuantityInCart(rowData.name)}
+                    onClick={() => addToCart(rowData.name)}
                 />
             </>
         );

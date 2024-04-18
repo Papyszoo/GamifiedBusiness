@@ -2,32 +2,23 @@ import { create } from "zustand";
 
 export default create((set, get) => ({
     cart: [],
-    addToCart: (pizza) => {
+    addToCart: (pizzaName) => {
         const isPizzaInCart =
-            cart.some((cartPizza) => cartPizza.name === pizza.name) &&
-            pizza.name !== "Custom";
+            get().cart.some((cartPizza) => cartPizza.name === pizzaName) &&
+            pizzaName !== "Custom";
         if (isPizzaInCart) {
-            set({
-                cart: cart.map((cartPizza) =>
-                    cartPizza.name === pizza.name
+            set((state) => ({
+                cart: state.cart.map((cartPizza) =>
+                    cartPizza.name === pizzaName
                         ? { ...cartPizza, quantity: cartPizza.quantity + 1 }
                         : cartPizza
                 ),
-            });
+            }));
         } else {
             set((state) => ({
-                cart: [...cart, { ...pizza, quantity: 1 }],
+                cart: [...state.cart, { name: pizzaName, quantity: 1 }],
             }));
         }
-    },
-    incrementQuantityInCart: (pizzaName) => {
-        set((state) => ({
-            cart: state.cart.map((cartPizza) =>
-                cartPizza.name === pizzaName
-                    ? { ...cartPizza, quantity: cartPizza.quantity + 1 }
-                    : cartPizza
-            ),
-        }));
     },
     decrementQuantityInCart: (pizzaName) => {
         const currentCart = get().cart;
@@ -40,7 +31,7 @@ export default create((set, get) => ({
             pizzaToModify.quantity -= 1;
             set({
                 cart: [
-                    currentCart.filter((p) => p.name != pizzaName),
+                    ...currentCart.filter((p) => p.name != pizzaName),
                     pizzaToModify,
                 ],
             });
