@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "wouter";
 import FloorPreview from "./FloorPreview";
 import FloorCustomize from "./FloorCustomize";
+import FloorCart from "./FloorCart";
 import { useTransition } from "@react-spring/core";
 import { config, a } from "@react-spring/three";
 import { useLocation } from "wouter";
@@ -36,6 +37,13 @@ const Floors = () => {
                     <a.group {...props}>
                         <AnimatedExpand>
                             <FloorCustomize />
+                        </AnimatedExpand>
+                    </a.group>
+                </Route>
+                <Route path="/cart">
+                    <a.group {...props}>
+                        <AnimatedExpand>
+                            <FloorCart />
                         </AnimatedExpand>
                     </a.group>
                 </Route>
