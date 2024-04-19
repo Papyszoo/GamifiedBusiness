@@ -17,8 +17,6 @@ const MenuPage = () => {
     );
 
     const cartActionsBody = (rowData) => {
-        console.log(rowData);
-        console.log(cart);
         const quantity = cart.find((p) => p.name === rowData.name)?.quantity;
         return (
             <>
