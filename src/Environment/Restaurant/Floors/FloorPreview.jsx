@@ -7,7 +7,10 @@ const FloorPreview = () => {
     return (
         <>
             <Belt position={[0, 4, 1]} />
-            <Pizza position={[0, -1, 0]} ingredients={[Ingredients.bacon]} />
+            <Pizza
+                position={[0, -1, 0]}
+                ingredients={[Ingredients.bacon, Ingredients.mushrooms]}
+            />
             <Pizza position={[-3, -3, -3]} />
         </>
     );

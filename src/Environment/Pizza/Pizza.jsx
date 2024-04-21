@@ -5,10 +5,12 @@ import { MeshSurfaceSampler } from "three-stdlib";
 import { Ingredients } from "../../Constants";
 import Ham from "./Ingredients/Ham";
 import Bacon from "./Ingredients/Bacon";
+import Mushroom from "./Ingredients/Mushroom";
 
 const IngredientsObjects = {
     [Ingredients.ham]: Ham,
     [Ingredients.bacon]: Bacon,
+    [Ingredients.mushrooms]: Mushroom,
 };
 
 const count = 5;

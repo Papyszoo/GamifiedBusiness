@@ -3,10 +3,12 @@ import { Ingredients } from "../../../Constants";
 import Ham from "./Ham";
 import Bacon from "./Bacon";
 import { useSurfaceSampler } from "@react-three/drei";
+import Mushroom from "./Mushroom";
 
 const IngredientsObjects = {
     [Ingredients.ham]: Ham,
     [Ingredients.bacon]: Bacon,
+    [Ingredients.mushrooms]: Mushroom,
 };
 
 const IngredientSampler = ({ ingredient, cheeseRef }) => {
