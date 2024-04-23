@@ -6,12 +6,14 @@ import useLocationSettingsStore from "./useLocationSettingsStore";
 import { useShallow } from "zustand/react/shallow";
 import Overlay from "./Overlay/Overlay";
 import { Leva } from "leva";
-import { lazy } from 'react'
-import { Canvas } from '@react-three/offscreen'
+import { lazy } from "react";
+import { Canvas } from "@react-three/offscreen";
 
 const App = () => {
-    const worker = new Worker(new URL('./worker.jsx', import.meta.url), { type: 'module' })
-    const Scene = lazy(() => import('./Environment/Environment'))
+    const worker = new Worker(new URL("./worker.jsx", import.meta.url), {
+        type: "module",
+    });
+    const Scene = lazy(() => import("./Environment/Environment"));
     const [location] = useLocation();
 
     const { locationChanged } = useLocationSettingsStore(
@@ -29,8 +31,11 @@ const App = () => {
         <>
             <Leva />
             <Canvas
-                worker={worker} fallback={<Scene />}
-                shadows camera={{ position: [0, 5, 10], fov: 25 }} />
+                worker={worker}
+                fallback={<Scene />}
+                shadows
+                camera={{ position: [0, 5, 10], fov: 25 }}
+            />
             <Overlay />
         </>
     );
