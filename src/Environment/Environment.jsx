@@ -56,7 +56,7 @@ const Environment = () => {
 
     return (
         <Bvh>
-            {/* <Perf position="bottom-left" /> */}
+            <Perf position="bottom-left" />
             <FakePizzeria />
             <orbitControls
                 ref={controls}
