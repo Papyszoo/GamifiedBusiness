@@ -7,6 +7,7 @@ import { useShallow } from "zustand/react/shallow";
 import Overlay from "./Overlay/Overlay";
 import Environment from "./Environment/Environment";
 import { Leva } from "leva";
+import { Canvas } from "@react-three/fiber";
 
 const App = () => {
     const [location] = useLocation();
