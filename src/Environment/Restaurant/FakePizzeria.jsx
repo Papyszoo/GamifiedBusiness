@@ -1,4 +1,4 @@
-import { Effects, Sky, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
 import { PizzaSun } from "../Models/PizzaSun";
@@ -7,26 +7,18 @@ import useOptionsStore from "../../useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
 import Floors from "./Floors/Floors";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
+import SkyContainer from "./SkyContainer";
 
 extend({ UnrealBloomPass });
 
 export default function FakePizzeria() {
+    const skyRef = useRef();
     const parameters = useControls("FakePizzeria", {
         bloomPass: folder({
             threshold: 1,
             strength: 0.3,
             radius: 0.3,
-        }),
-        sky: folder({
-            distance: 450000,
-            sunPosition: {
-                x: 20000,
-                y: 20000,
-                z: 20000,
-            },
-            inclination: 0.3,
-            azimuth: 5.25,
         }),
     });
 
@@ -37,13 +29,6 @@ export default function FakePizzeria() {
     );
     return (
         <>
-            <Effects disableGamma>
-                <unrealBloomPass
-                    threshold={parameters.threshold}
-                    strength={parameters.strength}
-                    radius={parameters.radius}
-                />
-            </Effects>
             {darkMode ? (
                 <>
                     <Stars count={400} />
@@ -52,16 +37,7 @@ export default function FakePizzeria() {
                     <PizzaSun />
                 </>
             ) : (
-                <Sky
-                    distance={450000}
-                    sunPosition={[
-                        parameters.sunPosition.x,
-                        parameters.sunPosition.y,
-                        parameters.sunPosition.z,
-                    ]}
-                    inclination={parameters.inclination}
-                    azimuth={5.25}
-                />
+                <SkyContainer />
             )}
 
             <FloatingIsland position={[0, -5, 0]} />
