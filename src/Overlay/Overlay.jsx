@@ -11,6 +11,7 @@ import useOptionsStore from "../useOptionsStore";
 import { Button } from "primereact/button";
 import CartPage from "./CartPage";
 import MenuPage from "./MenuPage";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -33,6 +34,7 @@ const Overlay = () => {
 
     return (
         <PrimeReactProvider>
+            <ThemeSwitcher />
             <Dialog
                 visible
                 closable={false}
