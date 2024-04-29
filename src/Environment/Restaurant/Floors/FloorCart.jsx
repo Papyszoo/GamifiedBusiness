@@ -1,7 +1,7 @@
 import React from "react";
 import Pizza from "../../Pizza/Pizza";
 import { Ingredients, Menu } from "../../../Constants";
-import useCart from "../../../useCart";
+import useCart from "../../../stores/useCart";
 import { useShallow } from "zustand/react/shallow";
 import { Billboard, Text } from "@react-three/drei";
 

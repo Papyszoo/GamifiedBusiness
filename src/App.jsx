@@ -2,7 +2,7 @@ import "./style.css";
 import React, { useEffect } from "react";
 import { useLocation } from "wouter";
 import { Routes } from "./Constants";
-import useLocationSettingsStore from "./useLocationSettingsStore";
+import useLocationSettingsStore from "./stores/useLocationSettingsStore";
 import { useShallow } from "zustand/react/shallow";
 import Overlay from "./Overlay/Overlay";
 import Environment from "./Environment/Environment";

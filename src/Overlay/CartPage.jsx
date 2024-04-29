@@ -1,5 +1,5 @@
 import React from "react";
-import useCart from "../useCart";
+import useCart from "../stores/useCart";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useShallow } from "zustand/react/shallow";

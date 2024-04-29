@@ -3,7 +3,7 @@ import { extend } from "@react-three/fiber";
 import { useControls, folder } from "leva";
 import { PizzaSun } from "../Models/PizzaSun";
 import { UnrealBloomPass } from "three-stdlib";
-import useOptionsStore from "../../useOptionsStore";
+import useOptionsStore from "../../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import { FloatingIsland } from "./FloatingIsland";
 import Floors from "./Floors/Floors";

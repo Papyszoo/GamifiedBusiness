@@ -1,5 +1,5 @@
 import React from "react";
-import useLocationSettingsStore from "../useLocationSettingsStore";
+import useLocationSettingsStore from "../stores/useLocationSettingsStore";
 import { useShallow } from "zustand/react/shallow";
 import { PrimeReactProvider } from "primereact/api";
 import { Dialog } from "primereact/dialog";
@@ -7,7 +7,7 @@ import { TabPanel, TabView } from "primereact/tabview";
 import { useLocation } from "wouter";
 import HomePage from "./HomePage";
 import { Tabs } from "../Constants";
-import useOptionsStore from "../useOptionsStore";
+import useOptionsStore from "../stores/useOptionsStore";
 import { Button } from "primereact/button";
 import CartPage from "./CartPage";
 import MenuPage from "./MenuPage";

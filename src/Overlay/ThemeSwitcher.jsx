@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { PrimeReactContext } from "primereact/api";
-import useOptionsStore from "../useOptionsStore";
+import useOptionsStore from "../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 
 const ThemeSwitcher = () => {
