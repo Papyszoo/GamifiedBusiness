@@ -1,8 +1,10 @@
 import React from "react";
 import useCart from "../stores/useCart";
+import useOrder from "../stores/useOrder";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useShallow } from "zustand/react/shallow";
+import { Button } from "primereact/button";
 
 const CartPage = () => {
     const { cart } = useCart(
@@ -10,11 +12,19 @@ const CartPage = () => {
             cart: state.cart,
         }))
     );
+    const { makeOrder } = useOrder(
+        useShallow((state) => ({
+            cart: state.cart,
+        }))
+    );
     return (
-        <DataTable value={cart} tableStyle={{ minWidth: "50rem" }}>
-            <Column field="name" header="Name"></Column>
-            <Column field="quantity" header="Quantity"></Column>
-        </DataTable>
+        <>
+            <DataTable value={cart} tableStyle={{ minWidth: "50rem" }}>
+                <Column field="name" header="Name"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+            <Button label="Make an Order" onClick={() => makeOrder(cart)} />
+        </>
     );
 };
 
