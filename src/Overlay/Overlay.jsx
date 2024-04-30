@@ -12,6 +12,8 @@ import { Button } from "primereact/button";
 import CartPage from "./CartPage";
 import MenuPage from "./MenuPage";
 import ThemeSwitcher from "./ThemeSwitcher";
+import useOrder from "../stores/useOrder";
+import OrderPage from "./OrderPage";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -29,6 +31,12 @@ const Overlay = () => {
         useShallow((state) => ({
             darkMode: state.darkMode,
             toggleDarkMode: state.toggleDarkMode,
+        }))
+    );
+
+    const { order } = useOrder(
+        useShallow((state) => ({
+            order: state.order,
         }))
     );
 
@@ -59,7 +67,11 @@ const Overlay = () => {
                         <MenuPage />
                     </TabPanel>
                     <TabPanel leftIcon="pi pi-shopping-cart" header="Cart">
-                        <CartPage />
+                        {order && order.length > 0 ? (
+                            <OrderPage />
+                        ) : (
+                            <CartPage />
+                        )}
                     </TabPanel>
                     <TabPanel
                         leftIcon="pi pi-wrench"

@@ -14,7 +14,7 @@ const CartPage = () => {
     );
     const { makeOrder } = useOrder(
         useShallow((state) => ({
-            cart: state.cart,
+            makeOrder: state.makeOrder,
         }))
     );
     return (

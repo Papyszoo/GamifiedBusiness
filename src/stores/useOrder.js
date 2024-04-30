@@ -8,7 +8,7 @@ export default create((set, get) => ({
         set({
             order,
             orderCreated: Date.now(),
-            orderCompletesOn: new Date(Date.now().getTime() + 15 * 60 * 1000),
+            orderCompletesOn: new Date(new Date().getTime() + 15 * 60 * 1000),
         });
     },
     resetOrder: () => {
