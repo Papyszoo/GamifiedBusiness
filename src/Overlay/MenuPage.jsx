@@ -34,11 +34,16 @@ const MenuPage = () => {
         );
     };
 
+    const priceBody = (rowData) => {
+        return rowData.price ? `$${rowData.price}` : "";
+    };
+
     return (
         <DataTable value={Menu} tableStyle={{ minWidth: "50rem" }}>
             <Column field="name" header="Name"></Column>
             <Column field="sauce" header="Sauce"></Column>
             <Column field="ingredients" header="Ingredients"></Column>
+            <Column field="price" body={priceBody} header="Price"></Column>
             <Column body={cartActionsBody} header="Cart Actions"></Column>
         </DataTable>
     );

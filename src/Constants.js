@@ -58,7 +58,7 @@ export const Menu = [
         name: "Margherita",
         sauce: Sauces.tomato,
         ingredients: [Ingredients.cheese],
-        price: 25,
+        price: 15,
     },
     {
         name: "Capricciosa",
@@ -68,16 +68,16 @@ export const Menu = [
             Ingredients.ham,
             Ingredients.mushrooms,
         ],
-        price: 35,
+        price: 25,
     },
     {
         name: "Carbonara",
         sauce: Sauces.cream,
         ingredients: [Ingredients.cheese, Ingredients.bacon],
-        price: 35,
+        price: 25,
     },
     {
         name: "Custom",
-        basePrice: 25,
+        basePrice: 15,
     },
 ];
