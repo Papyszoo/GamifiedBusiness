@@ -81,3 +81,17 @@ export const Menu = [
         basePrice: 15,
     },
 ];
+
+export const IngredientsCost = {
+    [Ingredients.cheese]: 4,
+    [Ingredients.mushrooms]: 4,
+    [Ingredients.pepperoni]: 8,
+    [Ingredients.bacon]: 8,
+    [Ingredients.ham]: 7,
+    [Ingredients.spinach]: 5,
+    [Ingredients.chicken]: 7,
+    [Ingredients.onion]: 4,
+    [Ingredients.tomatoes]: 4,
+    [Ingredients.salmon]: 10,
+    [Ingredients.olives]: 6,
+};
