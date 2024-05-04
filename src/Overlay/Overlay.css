@@ -1,0 +1,13 @@
+#toggle-dark-mode-button {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 999999;
+}
+
+#toggle-layout-button {
+    position: absolute;
+    left: 0;
+    top: 150px;
+    z-index: 999999;
+}
