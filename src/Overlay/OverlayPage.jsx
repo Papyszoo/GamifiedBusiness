@@ -8,11 +8,15 @@ const OverlayPage = (props) => {
             overlayVisible: state.overlayVisible,
         }))
     );
-
-    if (overlayVisible) {
-        return props.children;
-    }
-    return <></>;
+    return (
+        <>
+            {overlayVisible ? (
+                <div className="overlay-page">{props.children}</div>
+            ) : (
+                <> </>
+            )}
+        </>
+    );
 };
 
 export default OverlayPage;

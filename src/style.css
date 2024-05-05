@@ -51,3 +51,7 @@ body,
 .overlay-hidden .p-tabview-panels {
     padding: 0;
 }
+
+.overlay-page {
+    padding: 50px;
+}
