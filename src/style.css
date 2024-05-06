@@ -12,10 +12,12 @@ body,
 .dialog-overlay {
     background-color: #00000080;
     z-index: 10;
+    max-height: 100%;
+    width: 100vw;
 }
 
-.p-dialog .p-dialog-header,
-.p-dialog .p-dialog-content {
+.dialog-overlay .p-dialog-header,
+.dialog-overlay .p-dialog-content {
     background: transparent;
     padding: 0;
 }
@@ -29,7 +31,7 @@ body,
     z-index: 15;
 }
 
-.p-dialog-mask {
+.dialog-overlay-mask {
     align-items: normal !important;
     justify-content: normal !important;
 }
@@ -38,12 +40,7 @@ body,
     height: 100%;
 }
 
-.p-dialog {
-    max-height: 100%;
-    width: 100vw;
-}
-
-.p-dialog.overlay-hidden {
+.dialog-overlay.overlay-hidden {
     height: fit-content;
     width: fit-content;
 }
@@ -54,4 +51,24 @@ body,
 
 .overlay-page {
     padding: 50px;
+}
+
+.ml-2 {
+    margin-left: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-3 {
+    gap: 15px;
 }

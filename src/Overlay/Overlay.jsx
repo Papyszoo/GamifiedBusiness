@@ -53,6 +53,7 @@ const Overlay = () => {
                 className={`dialog-overlay ${
                     overlayVisible ? "" : "overlay-hidden"
                 }`}
+                maskClassName="dialog-overlay-mask"
                 showHeader={false}
             >
                 <Button
