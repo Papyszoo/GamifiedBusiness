@@ -16,8 +16,21 @@ const MenuPage = () => {
         }))
     );
 
+    const ingredientsBody = (rowData) => {
+        return rowData.ingredients?.join(", ");
+    };
+
     const cartActionsBody = (rowData) => {
         const quantity = cart.find((p) => p.name === rowData.name)?.quantity;
+        console.log(rowData);
+        if (rowData.name === "Custom") {
+            return (
+                <Button
+                    icon="pi pi-plus"
+                    onClick={() => addToCart(rowData.name)}
+                />
+            );
+        }
         return (
             <>
                 <Button
@@ -42,7 +55,7 @@ const MenuPage = () => {
         <DataTable value={Menu} tableStyle={{ minWidth: "50rem" }}>
             <Column field="name" header="Name"></Column>
             <Column field="sauce" header="Sauce"></Column>
-            <Column field="ingredients" header="Ingredients"></Column>
+            <Column body={ingredientsBody} header="Ingredients"></Column>
             <Column field="price" body={priceBody} header="Price"></Column>
             <Column body={cartActionsBody} header="Cart Actions"></Column>
         </DataTable>
