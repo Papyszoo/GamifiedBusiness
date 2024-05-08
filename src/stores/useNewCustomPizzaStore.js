@@ -9,4 +9,7 @@ export default create((set, get) => ({
             set({ sauce: newSauce });
         }
     },
+    addIngredient: (ingredient) => {},
+    removeIngredient: (ingredient) => {},
+    addPizzaToCart: () => {},
 }));

@@ -19,7 +19,7 @@ const MenuPage = () => {
     );
 
     const ingredientsBody = (rowData) => {
-        return rowData.ingredients?.join(", ");
+        return rowData.ingredients?.map((i) => i.name).join(", ");
     };
 
     const cartActionsBody = (rowData) => {

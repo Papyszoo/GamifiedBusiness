@@ -1,9 +1,11 @@
 import { Dialog } from "primereact/dialog";
 import { RadioButton } from "primereact/radiobutton";
-import { Sauces } from "../Constants";
+import { Sauces, Ingredients } from "../Constants";
 import React from "react";
 import useNewCustomPizzaStore from "../stores/useNewCustomPizzaStore";
 import { useShallow } from "zustand/react/shallow";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 
 const AddCustomPizza = ({ visible, setVisible }) => {
     const { selectedSauce, setSauce } = useNewCustomPizzaStore(
@@ -12,6 +14,15 @@ const AddCustomPizza = ({ visible, setVisible }) => {
             setSauce: state.setSauce,
         }))
     );
+
+    const ingredientsBody = () => {
+        <></>;
+    };
+
+    const priceBody = (rowData) => {
+        return rowData.price ? `$${rowData.price}` : "";
+    };
+
     return (
         <Dialog
             header="Add Custom Pizza"
@@ -38,6 +49,14 @@ const AddCustomPizza = ({ visible, setVisible }) => {
                     );
                 })}
             </div>
+            <DataTable
+                value={Object.values(Ingredients)}
+                tableStyle={{ minWidth: "50rem" }}
+            >
+                <Column field="name" header="Name"></Column>
+                <Column field="price" body={priceBody} header="Price"></Column>
+                <Column body={ingredientsBody} header="Cart Actions"></Column>
+            </DataTable>
         </Dialog>
     );
 };

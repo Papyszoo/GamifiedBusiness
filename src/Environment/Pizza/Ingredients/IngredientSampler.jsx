@@ -6,9 +6,9 @@ import { useSurfaceSampler } from "@react-three/drei";
 import Mushroom from "./Mushroom";
 
 const IngredientsObjects = {
-    [Ingredients.ham]: Ham,
-    [Ingredients.bacon]: Bacon,
-    [Ingredients.mushrooms]: Mushroom,
+    [Ingredients.ham.name]: Ham,
+    [Ingredients.bacon.name]: Bacon,
+    [Ingredients.mushrooms.name]: Mushroom,
 };
 
 const IngredientSampler = ({ ingredient, cheeseRef }) => {

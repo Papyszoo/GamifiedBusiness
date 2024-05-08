@@ -8,9 +8,9 @@ import Bacon from "./Ingredients/Bacon";
 import Mushroom from "./Ingredients/Mushroom";
 
 const IngredientsObjects = {
-    [Ingredients.ham]: Ham,
-    [Ingredients.bacon]: Bacon,
-    [Ingredients.mushrooms]: Mushroom,
+    [Ingredients.ham.name]: Ham,
+    [Ingredients.bacon.name]: Bacon,
+    [Ingredients.mushrooms.name]: Mushroom,
 };
 
 const count = 5;
