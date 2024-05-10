@@ -2,6 +2,7 @@ import React from "react";
 import Pizza from "../../Pizza/Pizza";
 import { Ingredients } from "../../../Constants";
 import { Belt } from "../../Models/Belt";
+import { Chair } from "../../Models/Environment/Chair";
 
 const FloorPreview = () => {
     return (
@@ -14,6 +15,7 @@ const FloorPreview = () => {
                     Ingredients.mushrooms.name,
                 ]}
             />
+            <Chair position={[1, 1, 1]} />
             <Pizza position={[-3, -3, -3]} />
         </>
     );
