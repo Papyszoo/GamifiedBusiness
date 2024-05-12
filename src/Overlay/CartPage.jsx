@@ -22,6 +22,7 @@ const CartPage = () => {
             <DataTable value={cart} tableStyle={{ minWidth: "50rem" }}>
                 <Column field="name" header="Name"></Column>
                 <Column field="quantity" header="Quantity"></Column>
+                <Column field="price" header="Price"></Column>
             </DataTable>
             <Button label="Make an Order" onClick={() => makeOrder(cart)} />
         </>

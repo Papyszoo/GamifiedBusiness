@@ -35,17 +35,17 @@ export const Sauces = {
 };
 
 export const Ingredients = {
-    cheese: { name: "cheese", cost: 4 },
-    mushrooms: { name: "mushrooms", cost: 4 },
-    pepperoni: { name: "pepperoni", cost: 8 },
-    bacon: { name: "bacon", cost: 8 },
-    ham: { name: "ham", cost: 7 },
-    spinach: { name: "spinach", cost: 5 },
-    chicken: { name: "chicken", cost: 7 },
-    onion: { name: "onion", cost: 4 },
-    tomatoes: { name: "tomatoes", cost: 4 },
-    salmon: { name: "salmon", cost: 10 },
-    olives: { name: "olives", cost: 6 },
+    cheese: { name: "cheese", price: 4 },
+    mushrooms: { name: "mushrooms", price: 4 },
+    pepperoni: { name: "pepperoni", price: 8 },
+    bacon: { name: "bacon", price: 8 },
+    ham: { name: "ham", price: 7 },
+    spinach: { name: "spinach", price: 5 },
+    chicken: { name: "chicken", price: 7 },
+    onion: { name: "onion", price: 4 },
+    tomatoes: { name: "tomatoes", price: 4 },
+    salmon: { name: "salmon", price: 10 },
+    olives: { name: "olives", price: 6 },
 };
 
 export const Menu = [
