@@ -11,3 +11,10 @@
     top: 150px;
     z-index: 999999;
 }
+
+#toggle-settings-button {
+    position: absolute;
+    left: 0;
+    top: 200px;
+    z-index: 999999;
+}

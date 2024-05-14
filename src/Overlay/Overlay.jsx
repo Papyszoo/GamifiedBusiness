@@ -16,6 +16,7 @@ import useOrder from "../stores/useOrder";
 import OrderPage from "./OrderPage";
 import "./Overlay.css";
 import OverlayPage from "./OverlayPage";
+import SettingsModal from "./SettingsModal";
 
 const Overlay = () => {
     const [location, setLocation] = useLocation();
@@ -27,15 +28,21 @@ const Overlay = () => {
         }))
     );
 
-    const { darkMode, overlayVisible, toggleDarkMode, toggleOverlayVisible } =
-        useOptionsStore(
-            useShallow((state) => ({
-                darkMode: state.darkMode,
-                overlayVisible: state.overlayVisible,
-                toggleDarkMode: state.toggleDarkMode,
-                toggleOverlayVisible: state.toggleOverlayVisible,
-            }))
-        );
+    const {
+        darkMode,
+        overlayVisible,
+        toggleDarkMode,
+        toggleOverlayVisible,
+        toggleSettingsVisible,
+    } = useOptionsStore(
+        useShallow((state) => ({
+            darkMode: state.darkMode,
+            overlayVisible: state.overlayVisible,
+            toggleDarkMode: state.toggleDarkMode,
+            toggleOverlayVisible: state.toggleOverlayVisible,
+            toggleSettingsVisible: state.toggleSettingsVisible,
+        }))
+    );
 
     const { order } = useOrder(
         useShallow((state) => ({
@@ -46,6 +53,7 @@ const Overlay = () => {
     return (
         <PrimeReactProvider>
             <ThemeSwitcher />
+            <SettingsModal />
             <Dialog
                 visible
                 closable={false}
@@ -69,6 +77,11 @@ const Overlay = () => {
                             : "pi pi-window-maximize"
                     }
                     onClick={toggleOverlayVisible}
+                />
+                <Button
+                    id="toggle-settings-button"
+                    icon="pi pi-cog"
+                    onClick={toggleSettingsVisible}
                 />
                 <TabView
                     activeIndex={selectedTab}
