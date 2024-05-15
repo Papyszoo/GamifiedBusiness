@@ -7,12 +7,19 @@ import useCameraStore from "./useCameraStore";
 import { OrbitControls } from "three-stdlib";
 import { easing } from "maath";
 import { Bvh } from "@react-three/drei";
+import useOptionsStore from "../stores/useOptionsStore";
 
 extend({ OrbitControls });
 
 const Environment = () => {
     const three = useThree();
     const controls = useRef();
+
+    const { environmentHidden } = useOptionsStore(
+        useShallow((state) => ({
+            environmentHidden: state.environmentHidden,
+        }))
+    );
 
     const {
         targetCameraPosition,
@@ -57,7 +64,7 @@ const Environment = () => {
     return (
         <Bvh>
             <Perf position="bottom-left" />
-            <FakePizzeria />
+            {environmentHidden ? <></> : <FakePizzeria />}
             <orbitControls
                 ref={controls}
                 args={[three.camera, three.gl.domElement]}

@@ -72,3 +72,7 @@ body,
 .gap-3 {
     gap: 15px;
 }
+
+.flex-column {
+    flex-direction: column;
+}
