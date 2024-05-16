@@ -1,25 +1,27 @@
 import { Stars } from "@react-three/drei";
 import { extend } from "@react-three/fiber";
-import { useControls, folder } from "leva";
+import { useControls } from "leva";
 import { UnrealBloomPass } from "three-stdlib";
 import useOptionsStore from "../../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import Floors from "./Floors/Floors";
-import { Suspense, useRef } from "react";
+import { Suspense } from "react";
 import SkyContainer from "./SkyContainer";
-import { CounterCorner } from "../Models/Environment/CounterCorner";
+import Counter from "./Counter";
+import CeilingLight from "../Models/Environment/CeilingLight";
+import Lights from "./Lights";
 
 extend({ UnrealBloomPass });
 
 export default function FakePizzeria() {
-    const skyRef = useRef();
-    const parameters = useControls("FakePizzeria", {
-        bloomPass: folder({
-            threshold: 1,
-            strength: 0.3,
-            radius: 0.3,
-        }),
+    const elementPosition = useControls("Position", {
+        position: {
+            x: 0,
+            y: 0,
+            z: 0,
+        },
     });
+    console.log(elementPosition);
 
     const { darkMode, shadowsHidden } = useOptionsStore(
         useShallow((state) => ({
@@ -39,7 +41,14 @@ export default function FakePizzeria() {
                 <SkyContainer />
             )}
 
-            <CounterCorner />
+            <Counter position={[-6, -2, 2]} />
+            <Lights />
+
+            {/* position={[
+                    elementPosition.position.x,
+                    elementPosition.position.y,
+                    elementPosition.position.z,
+                ]} */}
 
             <mesh
                 rotation-x={-Math.PI / 2}
