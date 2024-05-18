@@ -22,7 +22,12 @@ const SkyContainer = () => {
             three.gl.toneMappingExposure = 0.5;
         }
     }, []);
-    return <Sky ref={skyRef} />;
+    return (
+        <>
+            <Sky ref={skyRef} />
+            <ambientLight intensity={4} />
+        </>
+    );
 };
 
 export default SkyContainer;

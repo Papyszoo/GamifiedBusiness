@@ -68,7 +68,7 @@ const SettingsModal = () => {
                         checked={lightsHidden}
                     />
                     <label htmlFor="hideLightsCheckbox" className="ml-2">
-                        Hide Lights
+                        Turn Off Dynamic Lights
                     </label>
                 </div>
             </div>

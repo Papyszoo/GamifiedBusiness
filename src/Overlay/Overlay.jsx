@@ -50,6 +50,14 @@ const Overlay = () => {
         }))
     );
 
+    const toggleFullScreen = () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.body.requestFullscreen();
+        }
+    };
+
     return (
         <PrimeReactProvider>
             <ThemeSwitcher />
@@ -71,17 +79,18 @@ const Overlay = () => {
                 />
                 <Button
                     id="toggle-layout-button"
-                    icon={
-                        overlayVisible
-                            ? "pi pi-window-minimize"
-                            : "pi pi-window-maximize"
-                    }
+                    icon="pi pi-desktop"
                     onClick={toggleOverlayVisible}
                 />
                 <Button
                     id="toggle-settings-button"
                     icon="pi pi-cog"
                     onClick={toggleSettingsVisible}
+                />
+                <Button
+                    id="toggle-fullscreen-button"
+                    icon="pi pi-window-maximize"
+                    onClick={toggleFullScreen}
                 />
                 <TabView
                     activeIndex={selectedTab}

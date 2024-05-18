@@ -18,3 +18,10 @@
     top: 200px;
     z-index: 999999;
 }
+
+#toggle-fullscreen-button {
+    position: absolute;
+    left: 0;
+    top: 250px;
+    z-index: 999999;
+}

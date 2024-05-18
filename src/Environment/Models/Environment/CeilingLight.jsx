@@ -1,23 +1,38 @@
-import React, { useRef } from "react";
-import { useGLTF, useHelper } from "@react-three/drei";
+import React, { useRef, useState } from "react";
+import { useGLTF, useHelper, meshBounds } from "@react-three/drei";
 import { useShallow } from "zustand/react/shallow";
 import useOptionsStore from "../../../stores/useOptionsStore";
 import * as THREE from "three";
 
 const CeilingLight = (props) => {
+    const [lightsOn, setLightsOn] = useState(true);
     const lightRef = useRef();
     const { nodes, materials } = useGLTF(
         "/objects/environment/CeilingLight.glb"
     );
-    const { shadowsHidden } = useOptionsStore(
+    const { shadowsHidden, lightsHidden } = useOptionsStore(
         useShallow((state) => ({
             shadowsHidden: state.shadowsHidden,
+            lightsHidden: state.lightsHidden,
         }))
     );
+
+    const areLightsOn = () => !lightsHidden && lightsOn;
     // useHelper(lightRef, THREE.PointLightHelper, 0.1, "red");
     return (
-        <group {...props} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+        <group
+            {...props}
+            dispose={null}
+            onClick={() => setLightsOn((prev) => !prev)}
+            raycast={meshBounds}
+            onPointerEnter={() => {
+                document.body.style.cursor = "pointer";
+            }}
+            onPointerLeave={() => {
+                document.body.style.cursor = "default";
+            }}
+        >
+            <group rotation={[-Math.PI / 2, 0, 0]} scale={120}>
                 <mesh
                     castShadow={!shadowsHidden}
                     receiveShadow={!shadowsHidden}
@@ -36,12 +51,16 @@ const CeilingLight = (props) => {
                     geometry={nodes.Light_Ceiling2_3.geometry}
                 >
                     <meshStandardMaterial
-                        emissive="yellow"
-                        emissiveIntensity={1}
+                        emissive={areLightsOn() ? "yellow" : ""}
+                        emissiveIntensity={areLightsOn() ? 1 : 0}
                     />
                 </mesh>
             </group>
-            <pointLight position={[0, -1, 0]} ref={lightRef} intensity={10} />
+            <pointLight
+                position={[0, -1, 0]}
+                ref={lightRef}
+                intensity={areLightsOn() ? 25 : 0}
+            />
         </group>
     );
 };

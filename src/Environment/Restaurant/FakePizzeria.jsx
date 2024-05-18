@@ -7,9 +7,12 @@ import { useShallow } from "zustand/react/shallow";
 import Floors from "./Floors/Floors";
 import { Suspense } from "react";
 import SkyContainer from "./SkyContainer";
-import Counter from "./Counter";
-import CeilingLight from "../Models/Environment/CeilingLight";
-import Lights from "./Lights";
+import Counter from "../Groups/Counter";
+import CouchSmall from "../Models/Environment/CouchSmall";
+import Table from "../Models/Environment/Table";
+import { Chair } from "../Models/Environment/Chair";
+import TableWithTwoChairs from "../Groups/TableWithTwoChairs";
+import TableWithFourChairs from "../Groups/TableWithFourChairs";
 
 extend({ UnrealBloomPass });
 
@@ -41,8 +44,13 @@ export default function FakePizzeria() {
                 <SkyContainer />
             )}
 
-            <Counter position={[-6, -2, 2]} />
-            <Lights />
+            <Counter position={[-6, 0, 8]} />
+
+            {/* <CouchSmall /> */}
+
+            <TableWithTwoChairs position={[-11, 0, 8]} />
+            <TableWithTwoChairs position={[11, 0, 8]} />
+            <TableWithFourChairs />
 
             {/* position={[
                     elementPosition.position.x,
@@ -52,7 +60,7 @@ export default function FakePizzeria() {
 
             <mesh
                 rotation-x={-Math.PI / 2}
-                scale={600}
+                scale={1500}
                 position-y={-5}
                 castShadow={!shadowsHidden}
                 receiveShadow={!shadowsHidden}
