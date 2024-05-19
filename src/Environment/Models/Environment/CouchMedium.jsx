@@ -3,30 +3,32 @@ import { useGLTF } from "@react-three/drei";
 import useOptionsStore from "../../../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 
-export function Chair(props) {
-    const { nodes, materials } = useGLTF("/objects/environment/Chair.glb");
+const CouchMedium = (props) => {
+    const { nodes, materials } = useGLTF(
+        "/objects/environment/CouchMedium.glb"
+    );
     const { shadowsHidden } = useOptionsStore(
         useShallow((state) => ({
             shadowsHidden: state.shadowsHidden,
         }))
     );
-
     return (
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
                 <mesh
-                    geometry={nodes.Chair_1.geometry}
-                    material={materials.Wood}
-                    castShadow
+                    castShadow={!shadowsHidden}
+                    geometry={nodes.Couch_Medium1_1.geometry}
+                    material={materials.Couch_Blue}
                 />
                 <mesh
-                    castShadow
-                    geometry={nodes.Chair_2.geometry}
-                    material={materials.Cushing}
+                    castShadow={!shadowsHidden}
+                    geometry={nodes.Couch_Medium1_2.geometry}
+                    material={materials.Black}
                 />
             </group>
         </group>
     );
-}
+};
 
-useGLTF.preload("/objects/environment/Chair.glb");
+export default CouchMedium;
+useGLTF.preload("/objects/environment/CouchMedium.glb");

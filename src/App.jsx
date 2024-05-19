@@ -8,6 +8,7 @@ import Overlay from "./Overlay/Overlay";
 import Environment from "./Environment/Environment";
 import { Leva } from "leva";
 import { Canvas } from "@react-three/fiber";
+import useOptionsStore from "./stores/useOptionsStore";
 
 const App = () => {
     const [location] = useLocation();
@@ -15,6 +16,11 @@ const App = () => {
     const { locationChanged } = useLocationSettingsStore(
         useShallow((state) => ({
             locationChanged: state.locationChanged,
+        }))
+    );
+    const { shadowsHidden } = useOptionsStore(
+        useShallow((state) => ({
+            shadowsHidden: state.shadowsHidden,
         }))
     );
 
@@ -26,7 +32,7 @@ const App = () => {
     return (
         <>
             <Leva />
-            <Canvas>
+            <Canvas shadows={!shadowsHidden}>
                 <Environment />
             </Canvas>
             <Overlay />

@@ -10,9 +10,8 @@ const CeilingLight = (props) => {
     const { nodes, materials } = useGLTF(
         "/objects/environment/CeilingLight.glb"
     );
-    const { shadowsHidden, lightsHidden } = useOptionsStore(
+    const { lightsHidden } = useOptionsStore(
         useShallow((state) => ({
-            shadowsHidden: state.shadowsHidden,
             lightsHidden: state.lightsHidden,
         }))
     );
@@ -34,22 +33,16 @@ const CeilingLight = (props) => {
         >
             <group rotation={[-Math.PI / 2, 0, 0]} scale={120}>
                 <mesh
-                    castShadow={!shadowsHidden}
-                    receiveShadow={!shadowsHidden}
+                    castShadow
                     geometry={nodes.Light_Ceiling2_1.geometry}
                     material={materials.Grey}
                 />
                 <mesh
-                    castShadow={!shadowsHidden}
-                    receiveShadow={!shadowsHidden}
+                    castShadow
                     geometry={nodes.Light_Ceiling2_2.geometry}
                     material={materials.LightMetal}
                 />
-                <mesh
-                    castShadow={!shadowsHidden}
-                    receiveShadow={!shadowsHidden}
-                    geometry={nodes.Light_Ceiling2_3.geometry}
-                >
+                <mesh castShadow geometry={nodes.Light_Ceiling2_3.geometry}>
                     <meshStandardMaterial
                         emissive={areLightsOn() ? "yellow" : ""}
                         emissiveIntensity={areLightsOn() ? 1 : 0}
@@ -57,9 +50,10 @@ const CeilingLight = (props) => {
                 </mesh>
             </group>
             <pointLight
-                position={[0, -1, 0]}
                 ref={lightRef}
+                position={[0, -1, 0]}
                 intensity={areLightsOn() ? 25 : 0}
+                castShadow
             />
         </group>
     );

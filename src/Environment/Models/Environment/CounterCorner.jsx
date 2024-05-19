@@ -15,8 +15,7 @@ export function CounterCorner(props) {
     return (
         <group {...props} dispose={null}>
             <mesh
-                castShadow={!shadowsHidden}
-                receiveShadow={!shadowsHidden}
+                castShadow
                 geometry={nodes.Environment_Counter_Corner.geometry}
                 material={materials.Atlas}
                 scale={100}

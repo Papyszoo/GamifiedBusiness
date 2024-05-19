@@ -14,14 +14,12 @@ const CouchSmall = (props) => {
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={80}>
                 <mesh
-                    castShadow={!shadowsHidden}
-                    receiveShadow={!shadowsHidden}
+                    castShadow
                     geometry={nodes.Couch_Small1_1.geometry}
                     material={materials.Couch_Blue}
                 />
                 <mesh
-                    castShadow={!shadowsHidden}
-                    receiveShadow={!shadowsHidden}
+                    castShadow
                     geometry={nodes.Couch_Small1_2.geometry}
                     material={materials.Black}
                 />

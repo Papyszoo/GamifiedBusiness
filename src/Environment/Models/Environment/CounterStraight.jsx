@@ -15,8 +15,7 @@ export function CounterStraight(props) {
     return (
         <group {...props} dispose={null}>
             <mesh
-                castShadow={!shadowsHidden}
-                receiveShadow={!shadowsHidden}
+                castShadow
                 geometry={nodes.Environment_Counter_Straight.geometry}
                 material={materials.Atlas}
                 scale={100}

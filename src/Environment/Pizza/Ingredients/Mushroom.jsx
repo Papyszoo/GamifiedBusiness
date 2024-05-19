@@ -11,8 +11,6 @@ const Mushroom = ({ count, setMatrices }) => {
         <group dispose={null}>
             <instancedMesh
                 args={[null, null, count]}
-                castShadow
-                receiveShadow
                 geometry={nodes.Cube.geometry}
                 material={materials.Material}
                 ref={ref}

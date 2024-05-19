@@ -1,22 +1,19 @@
 import { Stars } from "@react-three/drei";
-import { extend } from "@react-three/fiber";
+import { extend, useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { UnrealBloomPass } from "three-stdlib";
 import useOptionsStore from "../../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 import Floors from "./Floors/Floors";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import SkyContainer from "./SkyContainer";
-import Counter from "../Groups/Counter";
-import CouchSmall from "../Models/Environment/CouchSmall";
-import Table from "../Models/Environment/Table";
-import { Chair } from "../Models/Environment/Chair";
-import TableWithTwoChairs from "../Groups/TableWithTwoChairs";
-import TableWithFourChairs from "../Groups/TableWithFourChairs";
+import Interior from "../Groups/Interior";
+import Garden from "../Groups/Garden";
 
 extend({ UnrealBloomPass });
 
 export default function FakePizzeria() {
+    const three = useThree();
     const elementPosition = useControls("Position", {
         position: {
             x: 0,
@@ -24,12 +21,10 @@ export default function FakePizzeria() {
             z: 0,
         },
     });
-    console.log(elementPosition);
 
-    const { darkMode, shadowsHidden } = useOptionsStore(
+    const { darkMode } = useOptionsStore(
         useShallow((state) => ({
             darkMode: state.darkMode,
-            shadowsHidden: state.shadowsHidden,
         }))
     );
     return (
@@ -43,14 +38,10 @@ export default function FakePizzeria() {
             ) : (
                 <SkyContainer />
             )}
+            <axesHelper args={[25]} />
 
-            <Counter position={[-6, 0, 8]} />
-
-            {/* <CouchSmall /> */}
-
-            <TableWithTwoChairs position={[-11, 0, 8]} />
-            <TableWithTwoChairs position={[11, 0, 8]} />
-            <TableWithFourChairs />
+            <Interior />
+            <Garden />
 
             {/* position={[
                     elementPosition.position.x,
@@ -62,8 +53,8 @@ export default function FakePizzeria() {
                 rotation-x={-Math.PI / 2}
                 scale={1500}
                 position-y={-5}
-                castShadow={!shadowsHidden}
-                receiveShadow={!shadowsHidden}
+                castShadow
+                receiveShadow
             >
                 <planeGeometry />
                 <meshStandardMaterial color="green" />

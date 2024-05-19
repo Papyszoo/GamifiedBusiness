@@ -2,10 +2,10 @@ import { create } from "zustand";
 
 export default create((set, get) => ({
     darkMode: true,
-    overlayVisible: true,
+    overlayVisible: false,
     settingsVisible: false,
     environmentHidden: false,
-    shadowsHidden: false,
+    shadowsHidden: true,
     lightsHidden: false,
     toggleDarkMode: () => {
         set(() => ({
