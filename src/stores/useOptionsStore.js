@@ -5,7 +5,6 @@ export default create((set, get) => ({
     overlayVisible: false,
     settingsVisible: false,
     environmentHidden: false,
-    shadowsHidden: true,
     lightsHidden: false,
     toggleDarkMode: () => {
         set(() => ({
@@ -25,11 +24,6 @@ export default create((set, get) => ({
     toggleEnvironmentVisible: () => {
         set(() => ({
             environmentHidden: !get().environmentHidden,
-        }));
-    },
-    toggleShadowsHidden: () => {
-        set(() => ({
-            shadowsHidden: !get().shadowsHidden,
         }));
     },
     toggleLightsHidden: () => {

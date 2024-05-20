@@ -8,9 +8,8 @@ const LampSquareFloor = (props) => {
     const { nodes, materials } = useGLTF(
         "/objects/environment/LampSquareFloor.glb"
     );
-    const { shadowsHidden, lightsHidden } = useOptionsStore(
+    const { lightsHidden } = useOptionsStore(
         useShallow((state) => ({
-            shadowsHidden: state.shadowsHidden,
             lightsHidden: state.lightsHidden,
         }))
     );
@@ -20,7 +19,10 @@ const LampSquareFloor = (props) => {
             <group>
                 <group
                     scale={4}
-                    onClick={() => setLightsOn((prev) => !prev)}
+                    onClick={(e) => {
+                        setLightsOn((prev) => !prev);
+                        e.stopPropagation();
+                    }}
                     onPointerEnter={() => {
                         document.body.style.cursor = "pointer";
                     }}
@@ -29,7 +31,6 @@ const LampSquareFloor = (props) => {
                     }}
                 >
                     <mesh
-                        castShadow
                         geometry={nodes.lampSquareFloor_2.geometry}
                         material={materials.lamp}
                     >
@@ -39,12 +40,10 @@ const LampSquareFloor = (props) => {
                         />
                     </mesh>
                     <mesh
-                        castShadow
                         geometry={nodes.lampSquareFloor_2_1.geometry}
                         material={materials.metal}
                     />
                     <mesh
-                        castShadow
                         geometry={nodes.lampSquareFloor_3.geometry}
                         material={materials.metal}
                     />
@@ -52,12 +51,10 @@ const LampSquareFloor = (props) => {
                 <pointLight
                     position={[-0.24, 3.2, 0.24]}
                     intensity={areLightsOn() ? 25 : 0}
-                    castShadow
                 />
                 <pointLight
                     position={[-0.24, 1, 0.24]}
                     intensity={areLightsOn() ? 25 : 0}
-                    castShadow
                 />
             </group>
         </group>

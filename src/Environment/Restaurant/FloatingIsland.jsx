@@ -10,31 +10,21 @@ export function FloatingIsland(props) {
     const { nodes } = useGLTF("/floatingIsland.glb");
     return (
         <group {...props} dispose={null}>
-            <mesh
-                name="Island"
-                castShadow
-                receiveShadow
-                geometry={nodes.Island.geometry}
-            >
+            <mesh name="Island" geometry={nodes.Island.geometry}>
                 <shaderMaterial
                     vertexShader={islandVertexShader}
                     fragmentShader={islandFragmentShader}
                 />
                 {/* <meshBasicMaterial color="grey" /> */}
             </mesh>
-            <mesh
-                name="Floor"
-                castShadow
-                receiveShadow
-                geometry={nodes.Floor.geometry}
-            >
+            <mesh name="Floor" geometry={nodes.Floor.geometry}>
                 <shaderMaterial
                     vertexShader={floorVertexShader}
                     fragmentShader={floorFragmentShader}
                 />
             </mesh>
 
-            <mesh castShadow receiveShadow geometry={nodes.Roof.geometry}>
+            <mesh geometry={nodes.Roof.geometry}>
                 <meshBasicMaterial color="#990000" side={THREE.DoubleSide} />
             </mesh>
         </group>

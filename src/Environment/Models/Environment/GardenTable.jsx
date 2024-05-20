@@ -10,12 +10,10 @@ const GardenTable = (props) => {
             <group rotation-y={-Math.PI / 2}>
                 <group rotation={[-Math.PI / 2, 0, 0]} scale={170}>
                     <mesh
-                        castShadow
                         geometry={nodes.Table2_1.geometry}
                         material={materials.DarkWood}
                     />
                     <mesh
-                        castShadow
                         geometry={nodes.Table2_2.geometry}
                         material={materials.Wood}
                     />

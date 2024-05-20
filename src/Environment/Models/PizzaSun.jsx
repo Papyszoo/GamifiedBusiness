@@ -39,8 +39,6 @@ export function PizzaSun(props) {
             rotation={[...Object.values(pizzaSunParameters.rotation)]}
         >
             <mesh
-                castShadow
-                receiveShadow
                 geometry={nodes["pizza-sun"].geometry}
                 material={materials.Material}
                 rotation={[Math.PI / 2, 0, 0]}

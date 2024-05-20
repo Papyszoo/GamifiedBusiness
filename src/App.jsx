@@ -18,11 +18,6 @@ const App = () => {
             locationChanged: state.locationChanged,
         }))
     );
-    const { shadowsHidden } = useOptionsStore(
-        useShallow((state) => ({
-            shadowsHidden: state.shadowsHidden,
-        }))
-    );
 
     useEffect(() => {
         const newLocationSettings = Routes[location] ?? Routes.default;
@@ -32,7 +27,7 @@ const App = () => {
     return (
         <>
             <Leva />
-            <Canvas shadows={!shadowsHidden}>
+            <Canvas>
                 <Environment />
             </Canvas>
             <Overlay />

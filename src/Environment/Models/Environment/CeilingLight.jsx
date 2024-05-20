@@ -22,7 +22,10 @@ const CeilingLight = (props) => {
         <group
             {...props}
             dispose={null}
-            onClick={() => setLightsOn((prev) => !prev)}
+            onClick={(e) => {
+                setLightsOn((prev) => !prev);
+                e.stopPropagation();
+            }}
             raycast={meshBounds}
             onPointerEnter={() => {
                 document.body.style.cursor = "pointer";
@@ -33,16 +36,14 @@ const CeilingLight = (props) => {
         >
             <group rotation={[-Math.PI / 2, 0, 0]} scale={120}>
                 <mesh
-                    castShadow
                     geometry={nodes.Light_Ceiling2_1.geometry}
                     material={materials.Grey}
                 />
                 <mesh
-                    castShadow
                     geometry={nodes.Light_Ceiling2_2.geometry}
                     material={materials.LightMetal}
                 />
-                <mesh castShadow geometry={nodes.Light_Ceiling2_3.geometry}>
+                <mesh geometry={nodes.Light_Ceiling2_3.geometry}>
                     <meshStandardMaterial
                         emissive={areLightsOn() ? "yellow" : ""}
                         emissiveIntensity={areLightsOn() ? 1 : 0}
@@ -53,7 +54,6 @@ const CeilingLight = (props) => {
                 ref={lightRef}
                 position={[0, -1, 0]}
                 intensity={areLightsOn() ? 25 : 0}
-                castShadow
             />
         </group>
     );

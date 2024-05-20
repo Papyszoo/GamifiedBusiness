@@ -8,21 +8,17 @@ const SettingsModal = () => {
     const {
         settingsVisible,
         environmentHidden,
-        shadowsHidden,
         lightsHidden,
         toggleSettingsVisible,
         toggleEnvironmentVisible,
-        toggleShadowsHidden,
         toggleLightsHidden,
     } = useOptionsStore(
         useShallow((state) => ({
             settingsVisible: state.settingsVisible,
             environmentHidden: state.environmentHidden,
-            shadowsHidden: state.shadowsHidden,
             lightsHidden: state.lightsHidden,
             toggleSettingsVisible: state.toggleSettingsVisible,
             toggleEnvironmentVisible: state.toggleEnvironmentVisible,
-            toggleShadowsHidden: state.toggleShadowsHidden,
             toggleLightsHidden: state.toggleLightsHidden,
         }))
     );
@@ -43,19 +39,6 @@ const SettingsModal = () => {
                     />
                     <label htmlFor="hideEnvironmentCheckbox" className="ml-2">
                         Hide 3D Environment
-                    </label>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                    <Checkbox
-                        inputId="hideShadowsCheckbox"
-                        name="pizza"
-                        value="Mushroom"
-                        disabled={environmentHidden}
-                        onChange={toggleShadowsHidden}
-                        checked={shadowsHidden}
-                    />
-                    <label htmlFor="hideShadowsCheckbox" className="ml-2">
-                        Hide Shadows
                     </label>
                 </div>
                 <div className="flex flex-wrap gap-3">
