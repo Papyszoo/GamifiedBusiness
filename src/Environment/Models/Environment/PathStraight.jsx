@@ -10,7 +10,7 @@ const PathStraight = (props) => {
             <group
                 rotation={[-Math.PI / 2, 0, 0]}
                 scale={800}
-                position-y={-5.3}
+                position-y={-0.3}
             >
                 <mesh
                     geometry={nodes.Path_Straight_1.geometry}

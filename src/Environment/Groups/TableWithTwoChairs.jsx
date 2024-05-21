@@ -6,12 +6,12 @@ import CeilingLight from "../Models/Environment/CeilingLight";
 const TableWithTwoChairs = (props) => {
     return (
         <group {...props}>
-            <group scale={2.5} position-y={-5}>
+            <group scale={2.5}>
                 <TableWithTablecloth scale={0.9} />
                 <Chair position={[0, 0, -0.85]} />
                 <Chair position={[0, 0, 0.85]} rotation-y={Math.PI} />
             </group>
-            <CeilingLight position-y={2} />
+            <CeilingLight position-y={7} />
         </group>
     );
 };

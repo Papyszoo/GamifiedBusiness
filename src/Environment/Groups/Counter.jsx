@@ -6,18 +6,13 @@ import CeilingLight from "../Models/Environment/CeilingLight";
 const Counter = (props) => {
     return (
         <group {...props}>
-            <group position-y={-5}>
-                <CounterCorner rotation-y={-Math.PI / 2} position-x={12} />
-                <CounterStraight position-x={4} />
-                <CounterStraight position-x={8} />
-                <CounterStraight position-z={4} rotation-y={-Math.PI / 2} />
-                <CounterStraight
-                    position={[12, 0, 4]}
-                    rotation-y={-Math.PI / 2}
-                />
-                <CounterCorner />
-            </group>
-            <group position={[6, 2, 0]}>
+            <CounterCorner rotation-y={-Math.PI / 2} position-x={12} />
+            <CounterStraight position-x={4} />
+            <CounterStraight position-x={8} />
+            <CounterStraight position-z={4} rotation-y={-Math.PI / 2} />
+            <CounterStraight position={[12, 0, 4]} rotation-y={-Math.PI / 2} />
+            <CounterCorner />
+            <group position={[6, 7, 0]}>
                 <CeilingLight position-x={-6} />;
                 <CeilingLight position-x={-2} />
                 <CeilingLight position-x={2} />

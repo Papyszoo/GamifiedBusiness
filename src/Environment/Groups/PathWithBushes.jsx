@@ -1,23 +1,47 @@
 import React from "react";
-import PathStraight from "../Models/Environment/PathStraight";
-import SmallBush from "../Models/Environment/SmallBush";
 import LampSquareFloor from "../Models/Environment/LampSquareFloor";
+import SmallBush from "../Models/Environment/SmallBush";
+import PathStraight from "../Models/Environment/PathStraight";
 
-const PathWithBushes = (props) => {
+const PathWithBushes = () => {
     return (
-        <group {...props}>
-            <PathStraight />
+        <group position-z={-6}>
             <group position-z={0}>
-                <LampSquareFloor position={[-3, -5, 0]} />
-                <LampSquareFloor position={[3, -5, 0]} />
+                <LampSquareFloor position-x={-3} />
+                <LampSquareFloor position-x={3} />
             </group>
-            {/* <group position-z={-1}>
-                <SmallBush position-x={-3} />
-                <SmallBush position-x={3} />
-            </group> */}
             <group position-z={-3.92}>
                 <SmallBush position-x={-3} />
                 <SmallBush position-x={3} />
+            </group>
+            <group>
+                <PathStraight />
+            </group>
+            <group position-z={7.85}>
+                <group position-z={0}>
+                    <LampSquareFloor position-x={-3} />
+                    <LampSquareFloor position-x={3} />
+                </group>
+                <group position-z={-3.92}>
+                    <SmallBush position-x={-3} />
+                    <SmallBush position-x={3} />
+                </group>
+                <PathStraight />
+            </group>
+            <group position-z={15.7}>
+                <group position-z={3.92}>
+                    <SmallBush position-x={-3} />
+                    <SmallBush position-x={3} />
+                </group>
+                <group position-z={0}>
+                    <LampSquareFloor position-x={-3} />
+                    <LampSquareFloor position-x={3} />
+                </group>
+                <group position-z={-3.92}>
+                    <SmallBush position-x={-3} />
+                    <SmallBush position-x={3} />
+                </group>
+                <PathStraight />
             </group>
         </group>
     );

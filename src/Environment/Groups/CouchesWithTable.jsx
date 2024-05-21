@@ -8,18 +8,16 @@ import Gazebo from "../Models/Environment/Gazebo";
 const CouchesWithTable = (props) => {
     return (
         <group {...props}>
-            <group position-y={-5}>
-                <CouchSmall position-x={-4} rotation-y={Math.PI / 2} />
-                <CouchSmall position-x={4} rotation-y={-Math.PI / 2} />
-                <CouchMedium position-z={-3} />
-                <CouchMedium position-z={3} rotation-y={Math.PI} />
-                <LampSquareFloor position={[-3.5, 0, 3]} />
-                <LampSquareFloor position={[3.5, 0, 3]} />
-                <LampSquareFloor position={[-3.5, 0, -3.3]} />
-                <LampSquareFloor position={[3.5, 0, -3.3]} />
-                <GardenTable />
-                <Gazebo />
-            </group>
+            <CouchSmall position-x={-4} rotation-y={Math.PI / 2} />
+            <CouchSmall position-x={4} rotation-y={-Math.PI / 2} />
+            <CouchMedium position-z={-3} />
+            <CouchMedium position-z={3} rotation-y={Math.PI} />
+            <LampSquareFloor position={[-3.5, 0, 3]} />
+            <LampSquareFloor position={[3.5, 0, 3]} />
+            <LampSquareFloor position={[-3.5, 0, -3.3]} />
+            <LampSquareFloor position={[3.5, 0, -3.3]} />
+            <GardenTable />
+            <Gazebo />
         </group>
     );
 };

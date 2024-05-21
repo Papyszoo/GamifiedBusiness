@@ -1,11 +1,24 @@
 import React from "react";
 import CouchesWithTable from "./CouchesWithTable";
-import PathStraight from "../Models/Environment/PathStraight";
 import PathWithBushes from "./PathWithBushes";
+import { useTexture } from "@react-three/drei";
+import * as THREE from "three";
 
 const Garden = (props) => {
+    const grassColorTexture = useTexture(
+        "/textures/GroundGrassGreen002_COL_1K.jpg",
+        (t) => {
+            t.repeat.set(100, 100);
+            t.wrapS = THREE.RepeatWrapping;
+            t.wrapT = THREE.RepeatWrapping;
+        }
+    );
     return (
         <group {...props}>
+            <mesh rotation-x={-Math.PI / 2} scale={1500}>
+                <planeGeometry />
+                <meshStandardMaterial map={grassColorTexture} />
+            </mesh>
             <group position-z={-25}>
                 <CouchesWithTable
                     position={[20, 0, 0]}
@@ -15,11 +28,7 @@ const Garden = (props) => {
                     position={[-20, 0, 0]}
                     rotation-y={Math.PI / 2}
                 />
-                <group position-z={-6}>
-                    <PathWithBushes />
-                    <PathWithBushes position-z={7.85} />
-                    <PathWithBushes position-z={15.7} />
-                </group>
+                <PathWithBushes />
             </group>
         </group>
     );

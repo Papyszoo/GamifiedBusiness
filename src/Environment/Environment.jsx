@@ -69,7 +69,7 @@ const Environment = () => {
                 ref={controls}
                 args={[three.camera, three.gl.domElement]}
                 // enableZoom={false}
-                enablePan={false}
+                // enablePan={false}
                 maxPolarAngle={Math.PI / 2}
             />
         </Bvh>

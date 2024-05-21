@@ -9,20 +9,12 @@ import { Suspense } from "react";
 import SkyContainer from "./SkyContainer";
 import Interior from "../Groups/Interior";
 import Garden from "../Groups/Garden";
-import * as THREE from "three";
 
 extend({ UnrealBloomPass });
 
 export default function FakePizzeria() {
     const three = useThree();
-    const grassColorTexture = useTexture(
-        "/textures/GroundGrassGreen002_COL_1K.jpg",
-        (t) => {
-            t.repeat.set(100, 100);
-            t.wrapS = THREE.RepeatWrapping;
-            t.wrapT = THREE.RepeatWrapping;
-        }
-    );
+
     const elementPosition = useControls("Position", {
         position: {
             x: 0,
@@ -49,19 +41,16 @@ export default function FakePizzeria() {
             )}
             <axesHelper args={[25]} />
 
-            <Interior />
-            <Garden />
+            <group position-y={-5}>
+                <Interior />
+                <Garden />
+            </group>
 
             {/* position={[
                     elementPosition.position.x,
                     elementPosition.position.y,
                     elementPosition.position.z,
                 ]} */}
-
-            <mesh rotation-x={-Math.PI / 2} scale={1500} position-y={-5}>
-                <planeGeometry />
-                <meshStandardMaterial map={grassColorTexture} />
-            </mesh>
 
             <Suspense fallback={null}>
                 <Floors />
