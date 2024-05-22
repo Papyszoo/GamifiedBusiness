@@ -1,9 +1,9 @@
 import React from "react";
-import CouchSmall from "../Models/Environment/CouchSmall";
-import CouchMedium from "../Models/Environment/CouchMedium";
-import LampSquareFloor from "../Models/Environment/LampSquareFloor";
-import GardenTable from "../Models/Environment/GardenTable";
-import Gazebo from "../Models/Environment/Gazebo";
+import CouchSmall from "../Models/Environment/Garden/CouchSmall";
+import CouchMedium from "../Models/Environment/Garden/CouchMedium";
+import LampSquareFloor from "../Models/Environment/Lights/LampSquareFloor";
+import GardenTable from "../Models/Environment/Garden/GardenTable";
+import Gazebo from "../Models/Environment/Garden/Gazebo";
 
 const CouchesWithTable = (props) => {
     return (

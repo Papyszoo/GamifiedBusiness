@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { useShallow } from "zustand/react/shallow";
-import useOptionsStore from "../../../stores/useOptionsStore";
+import useOptionsStore from "../../../../../stores/useOptionsStore";
 
 const LampSquareTable = () => {
     const { nodes, materials } = useGLTF(

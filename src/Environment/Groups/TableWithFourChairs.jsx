@@ -1,7 +1,7 @@
 import React from "react";
-import TableWithTablecloth from "../Models/Environment/TableWithTablecloth";
-import { Chair } from "../Models/Environment/Chair";
-import CeilingLight from "../Models/Environment/CeilingLight";
+import TableWithTablecloth from "../Models/Environment/Interior/TableWithTablecloth";
+import { Chair } from "../Models/Environment/Interior/Chair";
+import CeilingLight from "../Models/Environment/Lights/CeilingLight";
 
 const TableWithFourChairs = (props) => {
     return (

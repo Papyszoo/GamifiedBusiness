@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useGLTF, useHelper, meshBounds } from "@react-three/drei";
 import { useShallow } from "zustand/react/shallow";
-import useOptionsStore from "../../../stores/useOptionsStore";
+import useOptionsStore from "../../../../stores/useOptionsStore";
 import * as THREE from "three";
 
 const CeilingLight = (props) => {

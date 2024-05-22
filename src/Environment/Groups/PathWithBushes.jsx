@@ -1,7 +1,7 @@
 import React from "react";
-import LampSquareFloor from "../Models/Environment/LampSquareFloor";
-import SmallBush from "../Models/Environment/SmallBush";
-import PathStraight from "../Models/Environment/PathStraight";
+import LampSquareFloor from "../Models/Environment/Lights/LampSquareFloor";
+import SmallBush from "../Models/Environment/Garden/SmallBush";
+import PathStraight from "../Models/Environment/Garden/PathStraight";
 
 const PathWithBushes = () => {
     return (

@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import React, { useState } from "react";
-import useOptionsStore from "../../../stores/useOptionsStore";
+import useOptionsStore from "../../../../stores/useOptionsStore";
 import { useShallow } from "zustand/react/shallow";
 
 const LampSquareFloor = (props) => {

@@ -2,7 +2,7 @@ import React from "react";
 import Pizza from "../../Pizza/Pizza";
 import { Ingredients } from "../../../Constants";
 import { Belt } from "../../Models/Belt";
-import { Chair } from "../../Models/Environment/Chair";
+import { Chair } from "../../Models/Environment/Interior/Chair";
 
 const FloorPreview = () => {
     return (

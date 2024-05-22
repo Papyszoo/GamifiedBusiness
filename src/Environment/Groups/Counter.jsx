@@ -1,7 +1,7 @@
 import React from "react";
-import { CounterCorner } from "../Models/Environment/CounterCorner";
-import { CounterStraight } from "../Models/Environment/CounterStraight";
-import CeilingLight from "../Models/Environment/CeilingLight";
+import { CounterCorner } from "../Models/Environment/Interior/CounterCorner";
+import { CounterStraight } from "../Models/Environment/Interior/CounterStraight";
+import CeilingLight from "../Models/Environment/Lights/CeilingLight";
 
 const Counter = (props) => {
     return (
