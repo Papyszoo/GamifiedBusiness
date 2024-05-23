@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import SkyContainer from "./SkyContainer";
 import Interior from "../Groups/Interior";
 import Garden from "../Groups/Garden";
+import Kitchen from "../Groups/Kitchen";
 
 extend({ UnrealBloomPass });
 
@@ -44,6 +45,7 @@ export default function FakePizzeria() {
             <group position-y={-5}>
                 <Interior />
                 <Garden />
+                <Kitchen />
             </group>
 
             {/* position={[
