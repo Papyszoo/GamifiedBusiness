@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 const Egg = forwardRef((props, ref) => {
     const group = useRef();
-    const { nodes, materials } = useGLTF("egg.gltf");
+    const { nodes, materials } = useGLTF("/objects/ingredients/egg.glb");
     return (
         <group ref={group} {...props} dispose={null}>
             <mesh
@@ -18,6 +18,6 @@ const Egg = forwardRef((props, ref) => {
     );
 });
 
-useGLTF.preload("egg.gltf");
+useGLTF.preload("/objects/ingredients/egg.glb");
 
 export default Bacon;

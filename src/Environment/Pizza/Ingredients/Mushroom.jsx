@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const Mushroom = ({ count, setMatrices }) => {
-    const { nodes, materials } = useGLTF("/mushroom.glb");
+    const { nodes, materials } = useGLTF("/objects/ingredients/mushroom.glb");
     const ref = useRef();
     useEffect(() => {
         setMatrices([ref.current]);
@@ -19,6 +19,6 @@ const Mushroom = ({ count, setMatrices }) => {
     );
 };
 
-useGLTF.preload("/mushroom.glb");
+useGLTF.preload("/objects/ingredients/mushroom.glb");
 
 export default Mushroom;

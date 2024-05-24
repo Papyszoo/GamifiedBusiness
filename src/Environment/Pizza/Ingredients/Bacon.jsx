@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 const Bacon = ({ count, setMatrices }) => {
-    const { nodes, materials } = useGLTF("/bacon.glb");
+    const { nodes, materials } = useGLTF("/objects/ingredients/bacon.glb");
     const ref1 = useRef();
     const ref2 = useRef();
 
@@ -35,6 +35,6 @@ const Bacon = ({ count, setMatrices }) => {
     );
 };
 
-useGLTF.preload("/bacon.gltf");
+useGLTF.preload("/objects/ingredients/bacon.gltf");
 
 export default Bacon;

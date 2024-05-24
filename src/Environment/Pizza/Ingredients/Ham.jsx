@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const Ham = forwardRef((props, ref) => {
-    const { nodes, materials } = useGLTF("/ham.glb");
+    const { nodes, materials } = useGLTF("/objects/ingredients/ham.glb");
     return (
         <instancedMesh
             args={[null, null, 16]}
@@ -14,6 +14,6 @@ const Ham = forwardRef((props, ref) => {
     );
 });
 
-useGLTF.preload("/ham.glb");
+useGLTF.preload("/objects/ingredients/ham.glb");
 
 export default Ham;

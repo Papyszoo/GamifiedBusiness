@@ -2,7 +2,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 const Pepperoni = (props) => {
-    const { nodes, materials } = useGLTF("/pepperoni.glb");
+    const { nodes, materials } = useGLTF("/objects/ingredients/pepperoni.glb");
     return (
         <group {...props} dispose={null}>
             <mesh
@@ -19,6 +19,6 @@ const Pepperoni = (props) => {
     );
 };
 
-useGLTF.preload("/pepperoni.glb");
+useGLTF.preload("/objects/ingredients/pepperoni.glb");
 
 export default Pepperoni;
