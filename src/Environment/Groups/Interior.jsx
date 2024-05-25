@@ -16,11 +16,10 @@ const Interior = (props) => {
     );
     return (
         <group {...props}>
-            <mesh position={[0, 0.075, 4]} rotation-x={-Math.PI / 2}>
+            {/* <mesh position={[0, 0.075, 4]} rotation-x={-Math.PI / 2}>
                 <meshStandardMaterial map={tilesColorTexture} />
                 <planeGeometry args={[50, 30]} />
-                {/* <boxGeometry args={[50, 0.15, 30]} /> */}
-            </mesh>
+            </mesh> */}
             <group position-y={0.3}>
                 <Counter position={[-6, 0, 8]} />
                 <TableWithTwoChairs position={[-11, 0, 8]} />
