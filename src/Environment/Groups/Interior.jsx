@@ -4,15 +4,19 @@ import TableWithTwoChairs from "./TableWithTwoChairs";
 import TableWithFourChairs from "./TableWithFourChairs";
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import Wall from "../Models/Environment/Interior/Wall";
 
 const Interior = (props) => {
-    const tilesColorTexture = useTexture(
-        "/textures/tiles/patio_tiles_diff_1k.jpg",
-        (t) => {
-            t.repeat.set(10, 10);
-            t.wrapS = THREE.RepeatWrapping;
-            t.wrapT = THREE.RepeatWrapping;
+    const [tilesColorTexture, wallColorTexture] = useTexture(
+        [
+            "/textures/tiles/patio_tiles_diff_1k.jpg",
+            "/textures/tiles/dark_brick_wall_diff_1k.jpg",
+        ],
+        (tex) => {
+            tex.forEach((t) => {
+                t.repeat.set(10, 10);
+                t.wrapS = THREE.RepeatWrapping;
+                t.wrapT = THREE.RepeatWrapping;
+            });
         }
     );
     return (
@@ -28,60 +32,27 @@ const Interior = (props) => {
                 <TableWithFourChairs position={[5, 0, 1]} />
                 <TableWithFourChairs position={[-8, 0, -1]} />
             </group>
-            <group position-z={19.5} scale={2}>
-                <group position-x={-12}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={-10}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={-8}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={-6}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={-4}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={-2}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={2}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={4}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={6}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={8}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={10}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-                <group position-x={12}>
-                    <Wall />
-                    <Wall position-y={2} />
-                </group>
-            </group>
+            <mesh rotation-y={Math.PI} position-z={19}>
+                <meshStandardMaterial
+                    side={THREE.DoubleSide}
+                    map={wallColorTexture}
+                />
+                <planeGeometry args={[50, 30]} />
+            </mesh>
+            <mesh rotation-y={Math.PI / 2} position={[-25, 0, 11.5]}>
+                <meshStandardMaterial
+                    side={THREE.DoubleSide}
+                    map={wallColorTexture}
+                />
+                <planeGeometry args={[15, 30]} />
+            </mesh>
+            <mesh rotation-y={Math.PI / 2} position={[25, 0, 11.5]}>
+                <meshStandardMaterial
+                    side={THREE.DoubleSide}
+                    map={wallColorTexture}
+                />
+                <planeGeometry args={[15, 30]} />
+            </mesh>
         </group>
     );
 };

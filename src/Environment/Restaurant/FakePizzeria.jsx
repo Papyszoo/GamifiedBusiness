@@ -10,6 +10,7 @@ import SkyContainer from "./SkyContainer";
 import Interior from "../Groups/Interior";
 import Garden from "../Groups/Garden";
 import Kitchen from "../Groups/Kitchen";
+import Fence from "../Groups/Fence";
 
 extend({ UnrealBloomPass });
 
@@ -46,6 +47,7 @@ export default function FakePizzeria() {
                 <Interior />
                 <Garden />
                 <Kitchen />
+                <Fence />
             </group>
 
             {/* position={[
