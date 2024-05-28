@@ -6,7 +6,7 @@ import { useShallow } from "zustand/react/shallow";
 const LampSquareFloor = (props) => {
     const [lightsOn, setLightsOn] = useState(true);
     const { nodes, materials } = useGLTF(
-        "/objects/environment/LampSquareFloor.glb"
+        "/objects/environment/lights/LampSquareFloor.glb"
     );
     const { lightsHidden } = useOptionsStore(
         useShallow((state) => ({
@@ -62,4 +62,4 @@ const LampSquareFloor = (props) => {
 };
 
 export default LampSquareFloor;
-useGLTF.preload("/objects/environment/LampSquareFloor.glb");
+useGLTF.preload("/objects/environment/lights/LampSquareFloor.glb");

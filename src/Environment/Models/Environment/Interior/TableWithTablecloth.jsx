@@ -2,7 +2,9 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 const TableWithTablecloth = (props) => {
-    const { nodes } = useGLTF("/objects/environment/TableWithTablecloth.glb");
+    const { nodes } = useGLTF(
+        "/objects/environment/interior/TableWithTablecloth.glb"
+    );
     return (
         <group {...props} dispose={null}>
             <group scale={0.2}>
@@ -21,4 +23,4 @@ const TableWithTablecloth = (props) => {
 };
 
 export default TableWithTablecloth;
-useGLTF.preload("/objects/environment/TableWithTablecloth.glb");
+useGLTF.preload("/objects/environment/interior/TableWithTablecloth.glb");

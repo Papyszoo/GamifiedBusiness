@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 const PathStraight = (props) => {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/PathStraight.glb"
+        "/objects/environment/garden/PathStraight.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -25,5 +25,5 @@ const PathStraight = (props) => {
     );
 };
 
-useGLTF.preload("/objects/environment/PathStraight.glb");
+useGLTF.preload("/objects/environment/garden/PathStraight.glb");
 export default PathStraight;

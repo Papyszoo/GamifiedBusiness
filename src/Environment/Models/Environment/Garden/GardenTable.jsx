@@ -3,7 +3,7 @@ import React from "react";
 
 const GardenTable = (props) => {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/GardenTable.glb"
+        "/objects/environment/garden/GardenTable.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -24,4 +24,4 @@ const GardenTable = (props) => {
 };
 
 export default GardenTable;
-useGLTF.preload("/objects/environment/GardenTable.glb");
+useGLTF.preload("/objects/environment/garden/GardenTable.glb");

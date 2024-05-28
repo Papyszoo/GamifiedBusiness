@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function CounterStraight(props) {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/CounterStraight.glb"
+        "/objects/environment/interior/CounterStraight.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -16,4 +16,4 @@ export function CounterStraight(props) {
     );
 }
 
-useGLTF.preload("/objects/environment/CounterStraight.glb");
+useGLTF.preload("/objects/environment/interior/CounterStraight.glb");

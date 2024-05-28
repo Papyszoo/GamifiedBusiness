@@ -2,7 +2,9 @@ import { useGLTF } from "@react-three/drei";
 import React from "react";
 
 const Gazebo = (props) => {
-    const { nodes, materials } = useGLTF("/objects/environment/Gazebo.glb");
+    const { nodes, materials } = useGLTF(
+        "/objects/environment/garden/Gazebo.glb"
+    );
     return (
         <group {...props} dispose={null}>
             <group rotation-y={Math.PI / 2}>
@@ -26,4 +28,4 @@ const Gazebo = (props) => {
 
 export default Gazebo;
 
-useGLTF.preload("/objects/environment/Gazebo.glb");
+useGLTF.preload("/objects/environment/garden/Gazebo.glb");

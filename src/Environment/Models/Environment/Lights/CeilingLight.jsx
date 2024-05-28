@@ -8,7 +8,7 @@ const CeilingLight = (props) => {
     const [lightsOn, setLightsOn] = useState(true);
     const lightRef = useRef();
     const { nodes, materials } = useGLTF(
-        "/objects/environment/CeilingLight.glb"
+        "/objects/environment/lights/CeilingLight.glb"
     );
     const { lightsHidden } = useOptionsStore(
         useShallow((state) => ({
@@ -61,4 +61,4 @@ const CeilingLight = (props) => {
 
 export default CeilingLight;
 
-useGLTF.preload("/objects/environment/CeilingLight.glb");
+useGLTF.preload("/objects/environment/lights/CeilingLight.glb");

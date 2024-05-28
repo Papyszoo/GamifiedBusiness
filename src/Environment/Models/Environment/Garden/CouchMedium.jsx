@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 const CouchMedium = (props) => {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/CouchMedium.glb"
+        "/objects/environment/garden/CouchMedium.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -22,4 +22,4 @@ const CouchMedium = (props) => {
 };
 
 export default CouchMedium;
-useGLTF.preload("/objects/environment/CouchMedium.glb");
+useGLTF.preload("/objects/environment/garden/CouchMedium.glb");

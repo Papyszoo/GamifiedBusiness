@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function CounterCorner(props) {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/CounterCorner.glb"
+        "/objects/environment/interior/CounterCorner.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -16,4 +16,4 @@ export function CounterCorner(props) {
     );
 }
 
-useGLTF.preload("/objects/environment/CounterCorner.glb");
+useGLTF.preload("/objects/environment/interior/CounterCorner.glb");

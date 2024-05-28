@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 const KitchenCabinet = (props) => {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/Kitchen/Kitchen Cabinet.glb"
+        "/objects/environment/kitchen/Kitchen Cabinet.glb"
     );
     return (
         <group {...props} dispose={null}>
@@ -55,5 +55,5 @@ const KitchenCabinet = (props) => {
     );
 };
 
-useGLTF.preload("/objects/environment/Kitchen/Kitchen Cabinet.glb");
+useGLTF.preload("/objects/environment/kitchen/Kitchen Cabinet.glb");
 export default KitchenCabinet;

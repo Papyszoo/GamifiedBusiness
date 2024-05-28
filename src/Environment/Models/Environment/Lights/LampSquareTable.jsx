@@ -5,7 +5,7 @@ import useOptionsStore from "../../../../../stores/useOptionsStore";
 
 const LampSquareTable = () => {
     const { nodes, materials } = useGLTF(
-        "/objects/environment/LampSquareTable.glb"
+        "/objects/environment/lights/LampSquareTable.glb"
     );
     const { lightsHidden } = useOptionsStore(
         useShallow((state) => ({
@@ -36,4 +36,4 @@ const LampSquareTable = () => {
 
 export default LampSquareTable;
 
-useGLTF.preload("/objects/environment/LampSquareTable.glb");
+useGLTF.preload("/objects/environment/lights/LampSquareTable.glb");

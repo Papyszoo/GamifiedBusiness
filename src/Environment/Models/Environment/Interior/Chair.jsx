@@ -2,7 +2,9 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Chair(props) {
-    const { nodes, materials } = useGLTF("/objects/environment/Chair.glb");
+    const { nodes, materials } = useGLTF(
+        "/objects/environment/interior/Chair.glb"
+    );
 
     return (
         <group {...props} dispose={null}>
@@ -20,4 +22,4 @@ export function Chair(props) {
     );
 }
 
-useGLTF.preload("/objects/environment/Chair.glb");
+useGLTF.preload("/objects/environment/interior/Chair.glb");

@@ -2,7 +2,9 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 const Wall = (props) => {
-    const { nodes, materials } = useGLTF("objects/environment/Wall.glb");
+    const { nodes, materials } = useGLTF(
+        "objects/environment/interior/Wall.glb"
+    );
     return (
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -24,4 +26,4 @@ const Wall = (props) => {
 };
 
 export default Wall;
-useGLTF.preload("objects/environment/Wall.glb");
+useGLTF.preload("objects/environment/interior/Wall.glb");

@@ -2,7 +2,9 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 const CouchSmall = (props) => {
-    const { nodes, materials } = useGLTF("/objects/environment/CouchSmall.glb");
+    const { nodes, materials } = useGLTF(
+        "/objects/environment/garden/CouchSmall.glb"
+    );
     return (
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={80}>
@@ -20,4 +22,4 @@ const CouchSmall = (props) => {
 };
 
 export default CouchSmall;
-useGLTF.preload("/objects/environment/CouchSmall.glb");
+useGLTF.preload("/objects/environment/garden/CouchSmall.glb");
