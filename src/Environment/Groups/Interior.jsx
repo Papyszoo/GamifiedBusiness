@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Counter from "./Counter";
 import TableWithTwoChairs from "./TableWithTwoChairs";
 import TableWithFourChairs from "./TableWithFourChairs";
@@ -6,10 +6,11 @@ import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const Interior = (props) => {
-    const [tilesColorTexture, wallColorTexture] = useTexture(
+    const [tilesColorTexture, wallColorTexture, roofColorTexture] = useTexture(
         [
             "/textures/tiles/patio_tiles_diff_1k.jpg",
             "/textures/tiles/dark_brick_wall_diff_1k.jpg",
+            "/textures/tiles/roof_tiles_14_diff_1k.jpg",
         ],
         (tex) => {
             tex.forEach((t) => {
@@ -19,6 +20,10 @@ const Interior = (props) => {
             });
         }
     );
+
+    useEffect(() => {
+        roofColorTexture.repeat.set(5, 5);
+    }, []);
     return (
         <group {...props}>
             <mesh position={[0, 0.075, 4]} rotation-x={-Math.PI / 2}>
@@ -53,6 +58,24 @@ const Interior = (props) => {
                 />
                 <planeGeometry args={[15, 30]} />
             </mesh>
+            <group rotation-z={Math.PI / 3}>
+                <mesh rotation-y={Math.PI / 2} position={[26, -3, 12]}>
+                    <meshStandardMaterial
+                        side={THREE.DoubleSide}
+                        map={roofColorTexture}
+                    />
+                    <planeGeometry args={[16, 36]} />
+                </mesh>
+            </group>
+            <group rotation-z={-Math.PI / 3}>
+                <mesh rotation-y={-Math.PI / 2} position={[-26, -3, 12]}>
+                    <meshStandardMaterial
+                        side={THREE.DoubleSide}
+                        map={roofColorTexture}
+                    />
+                    <planeGeometry args={[16, 36]} />
+                </mesh>
+            </group>
         </group>
     );
 };
